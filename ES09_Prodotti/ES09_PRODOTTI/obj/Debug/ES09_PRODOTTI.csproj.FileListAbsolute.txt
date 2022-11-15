@@ -1,0 +1,9 @@
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES09_Prodotti\ES09_PRODOTTI\obj\Debug\ES09_PRODOTTI.csprojAssemblyReference.cache
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES09_Prodotti\ES09_PRODOTTI\obj\Debug\ES09_PRODOTTI.Form1.resources
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES09_Prodotti\ES09_PRODOTTI\obj\Debug\ES09_PRODOTTI.Properties.Resources.resources
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES09_Prodotti\ES09_PRODOTTI\obj\Debug\ES09_PRODOTTI.csproj.GenerateResource.cache
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES09_Prodotti\ES09_PRODOTTI\bin\Debug\ES09_PRODOTTI.exe.config
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES09_Prodotti\ES09_PRODOTTI\bin\Debug\ES09_PRODOTTI.exe
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES09_Prodotti\ES09_PRODOTTI\bin\Debug\ES09_PRODOTTI.pdb
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES09_Prodotti\ES09_PRODOTTI\obj\Debug\ES09_PRODOTTI.exe
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES09_Prodotti\ES09_PRODOTTI\obj\Debug\ES09_PRODOTTI.pdb

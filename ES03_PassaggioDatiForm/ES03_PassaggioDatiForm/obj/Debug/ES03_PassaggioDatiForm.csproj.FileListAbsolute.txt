@@ -1,0 +1,10 @@
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES03_PassaggioDatiForm\ES03_PassaggioDatiForm\obj\Debug\ES03_PassaggioDatiForm.csprojAssemblyReference.cache
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES03_PassaggioDatiForm\ES03_PassaggioDatiForm\obj\Debug\ES03_PassaggioDatiForm.frmDestCostruttore.resources
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES03_PassaggioDatiForm\ES03_PassaggioDatiForm\obj\Debug\ES03_PassaggioDatiForm.Properties.Resources.resources
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES03_PassaggioDatiForm\ES03_PassaggioDatiForm\obj\Debug\ES03_PassaggioDatiForm.csproj.GenerateResource.cache
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES03_PassaggioDatiForm\ES03_PassaggioDatiForm\bin\Debug\ES03_PassaggioDatiForm.exe.config
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES03_PassaggioDatiForm\ES03_PassaggioDatiForm\bin\Debug\ES03_PassaggioDatiForm.exe
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES03_PassaggioDatiForm\ES03_PassaggioDatiForm\bin\Debug\ES03_PassaggioDatiForm.pdb
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES03_PassaggioDatiForm\ES03_PassaggioDatiForm\obj\Debug\ES03_PassaggioDatiForm.frmPartenza.resources
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES03_PassaggioDatiForm\ES03_PassaggioDatiForm\obj\Debug\ES03_PassaggioDatiForm.exe
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES03_PassaggioDatiForm\ES03_PassaggioDatiForm\obj\Debug\ES03_PassaggioDatiForm.pdb

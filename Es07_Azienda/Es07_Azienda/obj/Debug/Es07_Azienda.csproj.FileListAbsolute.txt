@@ -1,0 +1,9 @@
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es07_Azienda\Es07_Azienda\bin\Debug\Es07_Azienda.exe.config
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es07_Azienda\Es07_Azienda\bin\Debug\Es07_Azienda.exe
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es07_Azienda\Es07_Azienda\bin\Debug\Es07_Azienda.pdb
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es07_Azienda\Es07_Azienda\obj\Debug\Es07_Azienda.Form1.resources
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es07_Azienda\Es07_Azienda\obj\Debug\Es07_Azienda.Properties.Resources.resources
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es07_Azienda\Es07_Azienda\obj\Debug\Es07_Azienda.csproj.GenerateResource.cache
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es07_Azienda\Es07_Azienda\obj\Debug\Es07_Azienda.exe
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es07_Azienda\Es07_Azienda\obj\Debug\Es07_Azienda.pdb
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es07_Azienda\Es07_Azienda\obj\Debug\Es07_Azienda.csprojAssemblyReference.cache

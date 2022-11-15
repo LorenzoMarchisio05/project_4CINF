@@ -1,0 +1,37 @@
+C:/Users/l.marchisio.2268/Desktop/4C NF/ES01_PERSONE/ES01_PERSONE/bin/Debug/ES01_PERSONE.exe.config
+C:/Users/l.marchisio.2268/Desktop/4C NF/ES01_PERSONE/ES01_PERSONE/bin/Debug/ES01_PERSONE.exe
+C:/Users/l.marchisio.2268/Desktop/4C NF/ES01_PERSONE/ES01_PERSONE/bin/Debug/ES01_PERSONE.pdb
+C:/Users/l.marchisio.2268/Desktop/4C NF/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.csprojAssemblyReference.cache
+C:/Users/l.marchisio.2268/Desktop/4C NF/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.frmMain.resources
+C:/Users/l.marchisio.2268/Desktop/4C NF/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.Properties.Resources.resources
+C:/Users/l.marchisio.2268/Desktop/4C NF/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.csproj.GenerateResource.cache
+C:/Users/l.marchisio.2268/Desktop/4C NF/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.exe
+C:/Users/l.marchisio.2268/Desktop/4C NF/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.pdb
+C:/Users/l.marchisio.2268/Desktop/4C/ES01_PERSONE/ES01_PERSONE/bin/Debug/ES01_PERSONE.exe.config
+C:/Users/l.marchisio.2268/Desktop/4C/ES01_PERSONE/ES01_PERSONE/bin/Debug/ES01_PERSONE.exe
+C:/Users/l.marchisio.2268/Desktop/4C/ES01_PERSONE/ES01_PERSONE/bin/Debug/ES01_PERSONE.pdb
+C:/Users/l.marchisio.2268/Desktop/4C/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.csprojAssemblyReference.cache
+C:/Users/l.marchisio.2268/Desktop/4C/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.frmMain.resources
+C:/Users/l.marchisio.2268/Desktop/4C/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.Properties.Resources.resources
+C:/Users/l.marchisio.2268/Desktop/4C/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.csproj.GenerateResource.cache
+C:/Users/l.marchisio.2268/Desktop/4C/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.exe
+C:/Users/l.marchisio.2268/Desktop/4C/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.pdb
+/Users/lorenzomarchisio/Downloads/ES01_PERSONE/ES01_PERSONE/bin/Debug/ES01_PERSONE.exe.config
+/Users/lorenzomarchisio/Downloads/ES01_PERSONE/ES01_PERSONE/bin/Debug/ES01_PERSONE.exe
+/Users/lorenzomarchisio/Downloads/ES01_PERSONE/ES01_PERSONE/bin/Debug/ES01_PERSONE.pdb
+/Users/lorenzomarchisio/Downloads/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.csproj.AssemblyReference.cache
+/Users/lorenzomarchisio/Downloads/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.frmMain.resources
+/Users/lorenzomarchisio/Downloads/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.Properties.Resources.resources
+/Users/lorenzomarchisio/Downloads/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.csproj.GenerateResource.cache
+/Users/lorenzomarchisio/Downloads/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.csproj.CoreCompileInputs.cache
+/Users/lorenzomarchisio/Downloads/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.exe
+/Users/lorenzomarchisio/Downloads/ES01_PERSONE/ES01_PERSONE/obj/Debug/ES01_PERSONE.pdb
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES01_PERSONE\ES01_PERSONE\bin\Debug\ES01_PERSONE.exe.config
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES01_PERSONE\ES01_PERSONE\bin\Debug\ES01_PERSONE.exe
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES01_PERSONE\ES01_PERSONE\bin\Debug\ES01_PERSONE.pdb
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES01_PERSONE\ES01_PERSONE\obj\Debug\ES01_PERSONE.csprojAssemblyReference.cache
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES01_PERSONE\ES01_PERSONE\obj\Debug\ES01_PERSONE.frmMain.resources
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES01_PERSONE\ES01_PERSONE\obj\Debug\ES01_PERSONE.Properties.Resources.resources
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES01_PERSONE\ES01_PERSONE\obj\Debug\ES01_PERSONE.csproj.GenerateResource.cache
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES01_PERSONE\ES01_PERSONE\obj\Debug\ES01_PERSONE.exe
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES01_PERSONE\ES01_PERSONE\obj\Debug\ES01_PERSONE.pdb

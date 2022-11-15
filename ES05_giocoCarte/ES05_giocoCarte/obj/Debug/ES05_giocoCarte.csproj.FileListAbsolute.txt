@@ -1,0 +1,9 @@
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES05_giocoCarte\ES05_giocoCarte\bin\Debug\ES05_giocoCarte.exe.config
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES05_giocoCarte\ES05_giocoCarte\bin\Debug\ES05_giocoCarte.exe
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES05_giocoCarte\ES05_giocoCarte\bin\Debug\ES05_giocoCarte.pdb
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES05_giocoCarte\ES05_giocoCarte\obj\Debug\ES05_giocoCarte.csprojAssemblyReference.cache
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES05_giocoCarte\ES05_giocoCarte\obj\Debug\ES05_giocoCarte.Form1.resources
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES05_giocoCarte\ES05_giocoCarte\obj\Debug\ES05_giocoCarte.Properties.Resources.resources
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES05_giocoCarte\ES05_giocoCarte\obj\Debug\ES05_giocoCarte.csproj.GenerateResource.cache
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES05_giocoCarte\ES05_giocoCarte\obj\Debug\ES05_giocoCarte.exe
+C:\Users\l.marchisio.2268\Desktop\4C_INF\ES05_giocoCarte\ES05_giocoCarte\obj\Debug\ES05_giocoCarte.pdb

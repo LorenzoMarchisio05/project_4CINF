@@ -1,0 +1,11 @@
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es08_Poligoni\ES_08_Poligoni\bin\Debug\ES_08_Poligoni.exe.config
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es08_Poligoni\ES_08_Poligoni\bin\Debug\ES_08_Poligoni.exe
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es08_Poligoni\ES_08_Poligoni\bin\Debug\ES_08_Poligoni.pdb
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es08_Poligoni\ES_08_Poligoni\obj\Debug\ES_08_Poligoni.csproj.AssemblyReference.cache
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es08_Poligoni\ES_08_Poligoni\obj\Debug\ES_08_Poligoni.csproj.SuggestedBindingRedirects.cache
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es08_Poligoni\ES_08_Poligoni\obj\Debug\Es08_Poligoni.Form1.resources
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es08_Poligoni\ES_08_Poligoni\obj\Debug\ES_08_Poligoni.Properties.Resources.resources
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es08_Poligoni\ES_08_Poligoni\obj\Debug\ES_08_Poligoni.csproj.GenerateResource.cache
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es08_Poligoni\ES_08_Poligoni\obj\Debug\ES_08_Poligoni.csproj.CoreCompileInputs.cache
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es08_Poligoni\ES_08_Poligoni\obj\Debug\ES_08_Poligoni.exe
+C:\Users\l.marchisio.2268\Desktop\4C_INF\Es08_Poligoni\ES_08_Poligoni\obj\Debug\ES_08_Poligoni.pdb
