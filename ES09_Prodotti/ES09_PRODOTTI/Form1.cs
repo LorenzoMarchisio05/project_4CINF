@@ -16,6 +16,8 @@ namespace ES09_PRODOTTI
             checkBox1.Checked = true;
             groupBox1.Visible = true;
             groupBox2.Visible = false;
+
+            // update qualcosa
         }
 
         private void Form1_Load(object sender, EventArgs e)
