@@ -10,14 +10,18 @@ namespace ES09_PRODOTTI
 {
     public partial class Form1 : Form
     {
+
+        private readonly AbstractProdottiFactory prodottiFactory;
+        private readonly clsDispensa dispensa;
         public Form1()
         {
             InitializeComponent();
+            dispensa = new clsDispensa();
+            prodottiFactory = AbstractProdottiFactory.Instance;
+            
             checkBox1.Checked = true;
             groupBox1.Visible = true;
             groupBox2.Visible = false;
-
-            // update qualcosa
         }
 
         private void Form1_Load(object sender, EventArgs e)

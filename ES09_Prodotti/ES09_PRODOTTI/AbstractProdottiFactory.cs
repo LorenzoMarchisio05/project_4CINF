@@ -2,10 +2,9 @@
 {
     public class AbstractProdottiFactory
     {
+        private static AbstractProdottiFactory _instance = null;
 
-        private AbstractProdottiFactory _instance = null;
-
-        public AbstractProdottiFactory Instance
+        public static AbstractProdottiFactory Instance
         {
             get
             {
@@ -20,12 +19,16 @@
         private AbstractProdottiFactory()
         {
         }
-
-        public clsProdotto Create(string nome, string marca, string prezzo)
+        
+        public clsAlimentare Create(string nome, string marca, string prezzo, string scadenza)
         {
-            return null;
+            return new clsAlimentare(nome, marca, prezzo, scadenza);
         }
-
-
+        
+        public clsNonAlimentare Create(string nome, string marca, string prezzo, string dataAcquisto, string giorniGaranzia)
+        {
+            return new clsNonAlimentare(nome, marca, prezzo,dataAcquisto, giorniGaranzia);
+        }
+        
     }
 }

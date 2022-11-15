@@ -41,12 +41,26 @@ namespace ES09_PRODOTTI
             }
             return status;
         }
+        
+        public bool remove()
+        {
+            bool status = true;
+            try
+            {
+                listaProdotti.RemoveAt(listaProdotti.Count - 1);
+            }
+            catch (Exception)
+            {
+                status = false;
+            }
+            return status;
+        }
 
         public void visualizzaDGV(DataGridView dgv)
         {
             dgv.DataSource = null;
             dgv.DataSource = listaProdotti;
         }
-        public int prodottoScaduto() => listaProdotti.OfType<clsAlimentare>().Count(p => p.scaduto());
+        public int contaProdottiAlimentariScaduti<T>() where T : clsProdotto => listaProdotti.OfType<T>().Count(p => p.scaduto());
     }
 }

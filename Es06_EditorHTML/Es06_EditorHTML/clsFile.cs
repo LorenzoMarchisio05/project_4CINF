@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//
 using System.IO;
 using System.Windows.Forms; //per le finestre di dialogo
+using System.CodeDom;
+using System.Security.Cryptography;
 
 namespace clsFile_ns
 {
-    public class clsFile
+    public sealed class clsFile
     {
         private string filename;
         private bool modificato;
+        private int hashcode;
         public string Filename 
         { 
             get => filename;
@@ -26,10 +28,10 @@ namespace clsFile_ns
         {
             get => modificato;
             set => modificato = value;
-        }
+        } 
         public clsFile()
         {
-            this.Filename = "_";
+            this.Filename = "senza nome";
             this.Modificato = false;
         }
         private string leggiFile()
@@ -43,11 +45,13 @@ namespace clsFile_ns
                     modificato = false;
                 }
             }
+            hashcode = testo.GetHashCode();
             return testo;
         }
+
         private void scriviFile(in string testo)
         {
-            if (File.Exists(filename))
+            try
             {
                 using (StreamWriter sw = new StreamWriter(filename, false))
                 {
@@ -55,6 +59,10 @@ namespace clsFile_ns
                     modificato = false;
                 }
             }
+            catch(Exception)
+            {
+            }
+            
         }
         public string apri()
         {
@@ -85,6 +93,7 @@ namespace clsFile_ns
                 Filename = saveFileDialog.FileName;
                 scriviFile(testo);
             }
+            hashcode = testo.GetHashCode();
         }
 
         public void salva(in string testo)
@@ -97,6 +106,7 @@ namespace clsFile_ns
             {
                 salvaConNome(testo);
             }
+            hashcode = testo.GetHashCode();
         }
 
         /// <summary>
@@ -104,6 +114,8 @@ namespace clsFile_ns
         /// </summary>
         /// <returns></returns>
         public string getFileNameRelativo() => Path.GetFileName(filename);
+
+        public bool isModificato(int hashcode) => this.hashcode != hashcode;
 
     }
 }
