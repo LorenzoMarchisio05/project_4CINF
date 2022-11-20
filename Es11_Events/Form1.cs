@@ -14,8 +14,8 @@ namespace Es11_Events
     {
         private int numeroGiri;
 
-        private delegate void reachedLimit();
-        private event reachedLimit reachedLimitEvent;
+        private delegate void reachedLimit(string msg);
+        private event reachedLimit ReachedLimit;
 
         private delegate void aggiorna(ref int numeroGiri);
 
@@ -27,12 +27,20 @@ namespace Es11_Events
             InitializeComponent();
 
             timer1.Interval = 1000;
+
+            this.ReachedLimit += reachedLimitEventHandler;
+
+            this.btnAccellera.Click += handleCambioGiri;
+            this.btnFrena.Click += handleCambioGiri;
         }
 
 
         public void handleCambioGiri(object sender, EventArgs e)
         {
             string tipoOperazione = (sender as Button).Text.ToLower();
+            
+            timer1.Stop();
+            timer1.Start();
 
             if (tipoOperazione == "accellera")
             {
@@ -44,6 +52,11 @@ namespace Es11_Events
             }
         }
 
+        private void reachedLimitEventHandler(string message)
+        {
+            MessageBox.Show(message);
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             aggiornaHandler?.Invoke(ref numeroGiri);
@@ -52,20 +65,29 @@ namespace Es11_Events
         private void incrementa(ref int giri)
         {
             giri += INCREMENTO_GIRI;
+            changeProgressBarState();
         }
 
         private void decrementa(ref int giri)
         {
             giri -= INCREMENTO_GIRI;
+            changeProgressBarState();
         }
 
         private void changeProgressBarState()
         {
             pbVelocità.Value = numeroGiri;
-            if(numeroGiri >= pbVelocità.Value)
+            if(numeroGiri >= pbVelocità.Maximum)
             {
-                
+                ReachedLimit?.Invoke("Giri troppo alti");
+                timer1.Stop();
             }
+            else
+            {
+                ReachedLimit?.Invoke("Giri troppo bassi");
+                timer1.Stop();
+            }
+            
         }
     }
 }
