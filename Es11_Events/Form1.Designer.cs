@@ -34,6 +34,9 @@
             this.btnFrena = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnAccendiMacchina = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblMarcia = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAccellera
@@ -76,11 +79,41 @@
             this.btnAccendiMacchina.UseVisualStyleBackColor = true;
             this.btnAccendiMacchina.Click += new System.EventHandler(this.btnAccendiMacchina_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(145, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Marcia: ";
+            // 
+            // lblMarcia
+            // 
+            this.lblMarcia.AutoSize = true;
+            this.lblMarcia.Location = new System.Drawing.Point(196, 28);
+            this.lblMarcia.Name = "lblMarcia";
+            this.lblMarcia.Size = new System.Drawing.Size(49, 13);
+            this.lblMarcia.TabIndex = 6;
+            this.lblMarcia.Text = "N marcia";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 105);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Numero Giri:";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(269, 153);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblMarcia);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAccendiMacchina);
             this.Controls.Add(this.btnFrena);
             this.Controls.Add(this.pbVelocità);
@@ -88,6 +121,7 @@
             this.Name = "frmMain";
             this.Text = "Events";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -98,6 +132,9 @@
         private System.Windows.Forms.Button btnFrena;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnAccendiMacchina;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblMarcia;
+        private System.Windows.Forms.Label label2;
     }
 }
 

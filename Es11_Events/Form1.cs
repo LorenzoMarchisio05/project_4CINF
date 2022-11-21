@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Es11_Events
 {
+
     public partial class frmMain : Form
     {
         private event clsAuto.reachedLimit ReachedLimit;
@@ -33,6 +34,8 @@ namespace Es11_Events
 
             timer1.Interval = 1000;
 
+            lblMarcia.Text = "N";
+
             this.ReachedLimit += reachedLimitEventHandler;
 
             this.btnAccellera.Click += handleCambioGiri;
@@ -54,7 +57,7 @@ namespace Es11_Events
             else
             {
                 aggiornaHandler = auto.decrementa; 
-            }
+            }            
         }
 
         private void reachedLimitEventHandler(string message)
@@ -72,18 +75,19 @@ namespace Es11_Events
 
         private void changeProgressBarState()
         {
-            if(auto.NumeroGiri >= pbVelocità.Maximum)
+            if(auto.NumeroGiri >= clsAuto.MAXGIRI)
             {
                 timer1.Stop();
                 ReachedLimit?.Invoke("Giri troppo alti");
             }
-            else if(auto.NumeroGiri <= pbVelocità.Minimum)
+            else if(auto.NumeroGiri <= clsAuto.MINGIRI)
             {
                 timer1.Stop();
                 ReachedLimit?.Invoke("Giri troppo bassi");
             }
             pbVelocità.Value = auto.NumeroGiri;
 
+            lblMarcia.Text = ((auto.NumeroGiri + auto.NumeroGiri % clsAuto.RANGE)/ clsAuto.RANGE).ToString();
         }
 
         private void btnAccendiMacchina_Click(object sender, EventArgs e)
@@ -105,5 +109,7 @@ namespace Es11_Events
                 }
             }
         }
+
+        
     }
 }
