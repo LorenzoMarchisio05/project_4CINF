@@ -12,19 +12,24 @@ namespace Es11_Events
 {
     public partial class frmMain : Form
     {
-        private int numeroGiri;
+        private event clsAuto.reachedLimit ReachedLimit;
+        private static clsAuto.aggiorna aggiornaHandler;
 
-        private delegate void reachedLimit(string msg);
-        private event reachedLimit ReachedLimit;
-
-        private delegate void aggiorna(ref int numeroGiri);
-
-        public const int INCREMENTO_GIRI = 1000;
-        private static aggiorna aggiornaHandler;
+        private clsAuto auto;
 
         public frmMain()
         {
             InitializeComponent();
+
+            toggleMacchina(true);
+
+            auto = new clsAuto();
+
+            pbVelocità.Minimum = 0;
+
+            pbVelocità.Value = auto.NumeroGiri;
+
+            pbVelocità.Maximum = clsAuto.MAXGIRI;
 
             timer1.Interval = 1000;
 
@@ -44,11 +49,11 @@ namespace Es11_Events
 
             if (tipoOperazione == "accellera")
             {
-                aggiornaHandler = incrementa;
+                aggiornaHandler = auto.incrementa;
             }
             else
             {
-                aggiornaHandler = decrementa; 
+                aggiornaHandler = auto.decrementa; 
             }
         }
 
@@ -59,35 +64,46 @@ namespace Es11_Events
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            aggiornaHandler?.Invoke(ref numeroGiri);
-        }
-
-        private void incrementa(ref int giri)
-        {
-            giri += INCREMENTO_GIRI;
+            aggiornaHandler?.Invoke();
             changeProgressBarState();
         }
 
-        private void decrementa(ref int giri)
-        {
-            giri -= INCREMENTO_GIRI;
-            changeProgressBarState();
-        }
+        
 
         private void changeProgressBarState()
         {
-            pbVelocità.Value = numeroGiri;
-            if(numeroGiri >= pbVelocità.Maximum)
+            if(auto.NumeroGiri >= pbVelocità.Maximum)
             {
+                timer1.Stop();
                 ReachedLimit?.Invoke("Giri troppo alti");
-                timer1.Stop();
             }
-            else
+            else if(auto.NumeroGiri <= pbVelocità.Minimum)
             {
-                ReachedLimit?.Invoke("Giri troppo bassi");
                 timer1.Stop();
+                ReachedLimit?.Invoke("Giri troppo bassi");
             }
-            
+            pbVelocità.Value = auto.NumeroGiri;
+
+        }
+
+        private void btnAccendiMacchina_Click(object sender, EventArgs e)
+        {
+            toggleMacchina(false);
+        }
+
+        private void toggleMacchina(bool isOff)
+        {
+            foreach(Control ctrl in this.Controls)
+            {
+                if(ctrl.Name == "btnAccendiMacchina")
+                {
+                    ctrl.Enabled = isOff;
+                }
+                else
+                {
+                    ctrl.Enabled = !isOff;
+                }
+            }
         }
     }
 }
