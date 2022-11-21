@@ -8,13 +8,7 @@
 
         public const int MAXGIRI = 10000;
 
-        public int NumeroGiri
-        {
-            get
-            {
-                return numeroGiri >= MAXGIRI ? MAXGIRI : numeroGiri;
-            }
-        } 
+        public int NumeroGiri => numeroGiri >= MAXGIRI ? MAXGIRI : numeroGiri;
 
         public delegate void reachedLimit(string msg);
         public delegate void aggiorna();
