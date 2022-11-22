@@ -46,17 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CartaIdentita.cs" />
-    <Compile Include="CIValidator.cs" />
+    <Compile Include="validator\AnagraphValidator.cs" />
+    <Compile Include="entity\CartaIdentita.cs" />
+    <Compile Include="validator\CIValidator.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ICartaIdentita.cs" />
-    <Compile Include="IPersona.cs" />
-    <Compile Include="Persona.cs" />
+    <Compile Include="Interface\ICartaIdentita.cs" />
+    <Compile Include="Interface\IPersona.cs" />
+    <Compile Include="entity\Persona.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
