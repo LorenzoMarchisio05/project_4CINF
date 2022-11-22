@@ -40,6 +40,10 @@ namespace Es11_Events
 
             this.btnAccellera.Click += handleCambioGiri;
             this.btnFrena.Click += handleCambioGiri;
+
+            var dictionary = new Dictionary<string, int>();
+
+            
         }
 
 
