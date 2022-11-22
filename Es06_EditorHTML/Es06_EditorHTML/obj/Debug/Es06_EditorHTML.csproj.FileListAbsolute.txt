@@ -41,3 +41,16 @@ Z:\Es06_EditorHTML\Es06_EditorHTML\obj\Debug\Es06_EditorHTML.csproj.GenerateReso
 Z:\Es06_EditorHTML\Es06_EditorHTML\obj\Debug\Es06_EditorHTML.csproj.CoreCompileInputs.cache
 Z:\Es06_EditorHTML\Es06_EditorHTML\obj\Debug\Es06_EditorHTML.exe
 Z:\Es06_EditorHTML\Es06_EditorHTML\obj\Debug\Es06_EditorHTML.pdb
+C:\Users\l.marchisio.2268\Desktop\project_4Cinf\Es06_EditorHTML\Es06_EditorHTML\bin\Debug\Es06_EditorHTML.exe.config
+C:\Users\l.marchisio.2268\Desktop\project_4Cinf\Es06_EditorHTML\Es06_EditorHTML\bin\Debug\Es06_EditorHTML.exe
+C:\Users\l.marchisio.2268\Desktop\project_4Cinf\Es06_EditorHTML\Es06_EditorHTML\bin\Debug\Es06_EditorHTML.pdb
+C:\Users\l.marchisio.2268\Desktop\project_4Cinf\Es06_EditorHTML\Es06_EditorHTML\obj\Debug\Es06_EditorHTML.csproj.AssemblyReference.cache
+C:\Users\l.marchisio.2268\Desktop\project_4Cinf\Es06_EditorHTML\Es06_EditorHTML\obj\Debug\Es06_EditorHTML.csproj.SuggestedBindingRedirects.cache
+C:\Users\l.marchisio.2268\Desktop\project_4Cinf\Es06_EditorHTML\Es06_EditorHTML\obj\Debug\Es06_EditorHTML.AboutBox1.resources
+C:\Users\l.marchisio.2268\Desktop\project_4Cinf\Es06_EditorHTML\Es06_EditorHTML\obj\Debug\Es06_EditorHTML.frmEditorHTML.resources
+C:\Users\l.marchisio.2268\Desktop\project_4Cinf\Es06_EditorHTML\Es06_EditorHTML\obj\Debug\Es06_EditorHTML.Properties.Resources.resources
+C:\Users\l.marchisio.2268\Desktop\project_4Cinf\Es06_EditorHTML\Es06_EditorHTML\obj\Debug\Es06_EditorHTML.TableForm.resources
+C:\Users\l.marchisio.2268\Desktop\project_4Cinf\Es06_EditorHTML\Es06_EditorHTML\obj\Debug\Es06_EditorHTML.csproj.GenerateResource.cache
+C:\Users\l.marchisio.2268\Desktop\project_4Cinf\Es06_EditorHTML\Es06_EditorHTML\obj\Debug\Es06_EditorHTML.csproj.CoreCompileInputs.cache
+C:\Users\l.marchisio.2268\Desktop\project_4Cinf\Es06_EditorHTML\Es06_EditorHTML\obj\Debug\Es06_EditorHTML.exe
+C:\Users\l.marchisio.2268\Desktop\project_4Cinf\Es06_EditorHTML\Es06_EditorHTML\obj\Debug\Es06_EditorHTML.pdb
