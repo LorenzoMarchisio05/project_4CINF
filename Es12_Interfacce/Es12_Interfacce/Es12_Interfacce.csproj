@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="entity\Iscritto.cs" />
+    <Compile Include="Interface\IIscritto.cs" />
     <Compile Include="validator\AnagraphValidator.cs" />
     <Compile Include="entity\CartaIdentita.cs" />
     <Compile Include="validator\CIValidator.cs" />
