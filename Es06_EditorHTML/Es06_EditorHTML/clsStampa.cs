@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Printing;
+using System.Threading;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace Es06_EditorHTML
 {
@@ -16,21 +10,21 @@ namespace Es06_EditorHTML
         #region costants
 
         // 1 unit = 1/100 inch ( 0,254mm )
-        private const int INLINE_MARGIN = 79;
+        private const int InlineMargin = 79;
 
-        private const int BLOCK_MARGIN = 100;
+        private const int BlockMargin = 100;
 
         #endregion
 
         
 
-        private PrintDocument _printDocument;
+        private readonly PrintDocument _printDocument;
 
-        private PageSetupDialog _pageSetupDialog;
+        private readonly PageSetupDialog _pageSetupDialog;
 
-        private PrintDialog _printDialog;
+        private readonly PrintDialog _printDialog;
 
-        private PrintPreviewDialog _printPreviewDialog;
+        private readonly PrintPreviewDialog _printPreviewDialog;
 
 
 
@@ -52,8 +46,31 @@ namespace Es06_EditorHTML
 
             // imposto parametri di default
             initDefaultParameters();
+
+            _printDocument.PrintPage += printDocument_PrintPage;
         }
 
+        private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            /*
+             * la ppagina di stampa è vista come un oggetto grafico 
+             * sul quale posso agire con le GDI+
+             */
+
+            SolidBrush brush = new SolidBrush(Color.Black);
+
+            int left = _printDocument.DefaultPageSettings.Margins.Left;
+            int top = _printDocument.DefaultPageSettings.Margins.Top;
+            int width = _printDocument.DefaultPageSettings.PaperSize.Width;
+            int height = _printDocument.DefaultPageSettings.PaperSize.Height;
+
+            Rectangle rectangle = new Rectangle(
+                left,
+                top,
+                width,
+                height
+                );
+        }
 
 
         private void initDefaultParameters()
@@ -63,22 +80,22 @@ namespace Es06_EditorHTML
             _printDocument
                 .DefaultPageSettings
                 .Margins
-                .Left = INLINE_MARGIN;
+                .Left = InlineMargin;
 
             _printDocument
                 .DefaultPageSettings
                 .Margins
-                .Right = INLINE_MARGIN;
+                .Right = InlineMargin;
 
             _printDocument
                 .DefaultPageSettings
                 .Margins
-                .Top = BLOCK_MARGIN;
+                .Top = BlockMargin;
 
             _printDocument
                 .DefaultPageSettings
                 .Margins
-                .Bottom = BLOCK_MARGIN;
+                .Bottom = BlockMargin;
 
             // setting copies count
             _printDocument
