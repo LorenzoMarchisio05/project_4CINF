@@ -45,7 +45,7 @@ namespace Es12_Interfacce.Entity
             {
                 if (!CIValidator.Validate(value))
                 {
-                    throw new Exception("Invalid CI number");
+                    throw new Exception($@"Invalid CI number: ""{value}""");
                 }
                 numeroCI = value;
             }
@@ -59,7 +59,7 @@ namespace Es12_Interfacce.Entity
                 string data = value.Trim();
                 if(data.Length <=  2)
                 {
-                    throw new Exception("invalid Name");
+                    throw new Exception($@"Invalid name ""{value}""");
                 }
                 comune = data;
             }
