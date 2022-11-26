@@ -17,5 +17,9 @@ namespace Es12_Interfacce
         {
             InitializeComponent();
         }
+        private void btnAggiungi_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

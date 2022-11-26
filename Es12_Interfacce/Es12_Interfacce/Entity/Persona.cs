@@ -35,9 +35,6 @@ namespace Es12_Interfacce.Entity
             }
         }
 
-        public string visualizza()
-        {
-            return $"{Cognome} {Nome}";
-        }
+        public string visualizza() => $"{Cognome} {Nome}";
     }
 }

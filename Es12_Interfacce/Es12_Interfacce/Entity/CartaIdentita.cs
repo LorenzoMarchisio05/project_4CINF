@@ -49,10 +49,7 @@ namespace Es12_Interfacce.Entity
             }
         }
 
-        public string visualizza()
-        {
-            return $"Numero Carta: {NumeroCI}\nComune: {Comune}\nData Rilascio: {DataRilascio}";
-        }
+        public string visualizza() => $"Numero Carta: {NumeroCI}\nComune: {Comune}\nData Rilascio: {DataRilascio}";
 
         public bool scaduta() => DateTime.Now.Date > dataRilascio.AddYears(5).Date;
     }
