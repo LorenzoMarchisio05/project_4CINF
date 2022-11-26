@@ -1,4 +1,4 @@
-namespace Es12_Interfacce
+namespace Es12_Interfacce.Interface
 {
     public interface IIscritto : ICartaIdentita , IPersona
     {

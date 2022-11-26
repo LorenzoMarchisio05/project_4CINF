@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Es12_Interfacce.Interface;
+using Es12_Interfacce.Validators;
 
-namespace Es12_Interfacce
+namespace Es12_Interfacce.Entity
 {
-    public class CartaIdentita : ICartaIdentita
+    public sealed class CartaIdentita : ICartaIdentita
     {
         private DateTime dataRilascio;
         private string numeroCI;

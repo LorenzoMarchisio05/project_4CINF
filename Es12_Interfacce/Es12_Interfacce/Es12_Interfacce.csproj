@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="entity\Iscritto.cs" />
+    <Compile Include="Entity\Iscritto.cs" />
     <Compile Include="Interface\IIscritto.cs" />
-    <Compile Include="validator\AnagraphValidator.cs" />
-    <Compile Include="entity\CartaIdentita.cs" />
-    <Compile Include="validator\CIValidator.cs" />
+    <Compile Include="Validators\AnagraphValidator.cs" />
+    <Compile Include="Entity\CartaIdentita.cs" />
+    <Compile Include="Validators\CIValidator.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,7 +59,7 @@
     </Compile>
     <Compile Include="Interface\ICartaIdentita.cs" />
     <Compile Include="Interface\IPersona.cs" />
-    <Compile Include="entity\Persona.cs" />
+    <Compile Include="Entity\Persona.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

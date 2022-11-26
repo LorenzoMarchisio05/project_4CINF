@@ -1,8 +1,10 @@
 using System;
+using Es12_Interfacce.Interface;
+using Es12_Interfacce.Validators;
 
-namespace Es12_Interfacce
+namespace Es12_Interfacce.Entity
 {
-    public class Iscritto : IIscritto
+    public sealed class Iscritto : IIscritto
     {
         private DateTime dataRilascio;
         private string numeroCI;
