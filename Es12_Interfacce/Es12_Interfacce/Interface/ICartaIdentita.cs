@@ -7,5 +7,7 @@
         string NumeroCI { get; set; }
 
         string visualizza();
+
+        bool scaduta();
     }
 }

@@ -81,5 +81,7 @@ namespace Es12_Interfacce.Entity
         {
             return $"Numero Carta: {NumeroCI}\nComune: {Comune}\nData Rilascio: {DataRilascio}\nCognome: {Cognome}\nNome: {Nome}";
         }
+
+        public bool scaduta() => DateTime.Now.Date > dataRilascio.AddYears(5).Date;
     }
 }
