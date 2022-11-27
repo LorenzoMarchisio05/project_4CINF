@@ -1,0 +1,10 @@
+/Users/lorenzomarchisio/Desktop/project_4CINF/Es12_Interfacce/Es12_Interfacce/bin/Debug/Es12_Interfacce.exe.config
+/Users/lorenzomarchisio/Desktop/project_4CINF/Es12_Interfacce/Es12_Interfacce/bin/Debug/Es12_Interfacce.exe
+/Users/lorenzomarchisio/Desktop/project_4CINF/Es12_Interfacce/Es12_Interfacce/bin/Debug/Es12_Interfacce.pdb
+/Users/lorenzomarchisio/Desktop/project_4CINF/Es12_Interfacce/Es12_Interfacce/obj/Debug/Es12_Interfacce.csproj.AssemblyReference.cache
+/Users/lorenzomarchisio/Desktop/project_4CINF/Es12_Interfacce/Es12_Interfacce/obj/Debug/Es12_Interfacce.frmMain.resources
+/Users/lorenzomarchisio/Desktop/project_4CINF/Es12_Interfacce/Es12_Interfacce/obj/Debug/Es12_Interfacce.Properties.Resources.resources
+/Users/lorenzomarchisio/Desktop/project_4CINF/Es12_Interfacce/Es12_Interfacce/obj/Debug/Es12_Interfacce.csproj.GenerateResource.cache
+/Users/lorenzomarchisio/Desktop/project_4CINF/Es12_Interfacce/Es12_Interfacce/obj/Debug/Es12_Interfacce.csproj.CoreCompileInputs.cache
+/Users/lorenzomarchisio/Desktop/project_4CINF/Es12_Interfacce/Es12_Interfacce/obj/Debug/Es12_Interfacce.exe
+/Users/lorenzomarchisio/Desktop/project_4CINF/Es12_Interfacce/Es12_Interfacce/obj/Debug/Es12_Interfacce.pdb
