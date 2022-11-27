@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.btnAggiungi = new System.Windows.Forms.Button();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtDataRilascio = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtComune = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCodiceCarta = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCognome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,12 +53,12 @@
             this.btnAggiungi.UseVisualStyleBackColor = true;
             this.btnAggiungi.Click += new System.EventHandler(this.btnAggiungi_Click);
             // 
-            // dateTimePicker2
+            // dtDataRilascio
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(96, 174);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(134, 20);
-            this.dateTimePicker2.TabIndex = 13;
+            this.dtDataRilascio.Location = new System.Drawing.Point(96, 174);
+            this.dtDataRilascio.Name = "dtDataRilascio";
+            this.dtDataRilascio.Size = new System.Drawing.Size(134, 20);
+            this.dtDataRilascio.TabIndex = 13;
             // 
             // label6
             // 
@@ -78,12 +78,12 @@
             this.label7.TabIndex = 11;
             this.label7.Text = "Nome Comune";
             // 
-            // textBox1
+            // txtComune
             // 
-            this.textBox1.Location = new System.Drawing.Point(96, 133);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 20);
-            this.textBox1.TabIndex = 10;
+            this.txtComune.Location = new System.Drawing.Point(96, 133);
+            this.txtComune.Name = "txtComune";
+            this.txtComune.Size = new System.Drawing.Size(134, 20);
+            this.txtComune.TabIndex = 10;
             // 
             // label8
             // 
@@ -94,12 +94,12 @@
             this.label8.TabIndex = 9;
             this.label8.Text = "Codice Carta Identita";
             // 
-            // textBox2
+            // txtCodiceCarta
             // 
-            this.textBox2.Location = new System.Drawing.Point(116, 94);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(114, 20);
-            this.textBox2.TabIndex = 8;
+            this.txtCodiceCarta.Location = new System.Drawing.Point(116, 94);
+            this.txtCodiceCarta.Name = "txtCodiceCarta";
+            this.txtCodiceCarta.Size = new System.Drawing.Size(114, 20);
+            this.txtCodiceCarta.TabIndex = 8;
             // 
             // label2
             // 
@@ -151,12 +151,12 @@
             this.Controls.Add(this.txtCognome);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dtDataRilascio);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtComune);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtCodiceCarta);
             this.Controls.Add(this.btnAggiungi);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmMain";
@@ -169,12 +169,12 @@
 
         #endregion
         private System.Windows.Forms.Button btnAggiungi;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtDataRilascio;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtComune;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCodiceCarta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCognome;
         private System.Windows.Forms.Label label1;

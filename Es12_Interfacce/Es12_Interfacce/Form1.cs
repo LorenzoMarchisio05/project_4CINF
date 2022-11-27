@@ -21,11 +21,18 @@ namespace Es12_Interfacce
         }
         private void btnAggiungi_Click(object sender, EventArgs e)
         {
-            Iscritto iscritto =new Iscritto(
+            Iscritto iscritto = new Iscritto(
                 txtNome.Text,
                 txtCognome.Text,
-                
-                );
+                txtCodiceCarta.Text,
+                txtComune.Text,
+                dtDataRilascio.Value.ToShortDateString()
+            );
+
+            iscritto.aggiungiAllaLista();
+            
+            Iscritto.visualizzaDgv(dgvIscritto);
+            
         }
     }
 }
