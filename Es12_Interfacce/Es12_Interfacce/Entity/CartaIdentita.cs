@@ -19,7 +19,7 @@ namespace Es12_Interfacce.Entity
                 {
                     throw new Exception($@"Invalid CI number: ""{value}""");
                 }
-                numeroCI = value;
+                numeroCI = value.ToUpper();
             }
         }
 

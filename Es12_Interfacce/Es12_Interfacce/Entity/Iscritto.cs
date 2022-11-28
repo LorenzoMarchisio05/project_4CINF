@@ -12,7 +12,7 @@ namespace Es12_Interfacce.Entity
 
         public delegate void eventDelegate(string message);
 
-        public event eventDelegate GiaPresente;
+        public static event eventDelegate Scaduta;
 
         private DateTime dataRilascio;
         private string numeroCI;
@@ -63,7 +63,7 @@ namespace Es12_Interfacce.Entity
                 {
                     throw new Exception($@"Invalid CI number: ""{value}""");
                 }
-                numeroCI = value;
+                numeroCI = value.ToUpper();
             }
         }
 
@@ -113,7 +113,13 @@ namespace Es12_Interfacce.Entity
             bool esito = true;
             try
             {
+                
+                if(this.scaduta())
+                {
+                    Scaduta?.Invoke("Carta D'identità scaduta");
+                }
                 iscritti.Add(this);
+                
             }
             catch(Exception)
             {

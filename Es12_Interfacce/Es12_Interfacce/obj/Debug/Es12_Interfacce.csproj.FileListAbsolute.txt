@@ -1,11 +1,9 @@
 C:\Users\l.marchisio.2268\Desktop\project_4CINF\Es12_Interfacce\Es12_Interfacce\bin\Debug\Es12_Interfacce.exe.config
 C:\Users\l.marchisio.2268\Desktop\project_4CINF\Es12_Interfacce\Es12_Interfacce\bin\Debug\Es12_Interfacce.exe
 C:\Users\l.marchisio.2268\Desktop\project_4CINF\Es12_Interfacce\Es12_Interfacce\bin\Debug\Es12_Interfacce.pdb
-C:\Users\l.marchisio.2268\Desktop\project_4CINF\Es12_Interfacce\Es12_Interfacce\obj\Debug\Es12_Interfacce.csproj.AssemblyReference.cache
-C:\Users\l.marchisio.2268\Desktop\project_4CINF\Es12_Interfacce\Es12_Interfacce\obj\Debug\Es12_Interfacce.csproj.SuggestedBindingRedirects.cache
 C:\Users\l.marchisio.2268\Desktop\project_4CINF\Es12_Interfacce\Es12_Interfacce\obj\Debug\Es12_Interfacce.frmMain.resources
 C:\Users\l.marchisio.2268\Desktop\project_4CINF\Es12_Interfacce\Es12_Interfacce\obj\Debug\Es12_Interfacce.Properties.Resources.resources
 C:\Users\l.marchisio.2268\Desktop\project_4CINF\Es12_Interfacce\Es12_Interfacce\obj\Debug\Es12_Interfacce.csproj.GenerateResource.cache
-C:\Users\l.marchisio.2268\Desktop\project_4CINF\Es12_Interfacce\Es12_Interfacce\obj\Debug\Es12_Interfacce.csproj.CoreCompileInputs.cache
 C:\Users\l.marchisio.2268\Desktop\project_4CINF\Es12_Interfacce\Es12_Interfacce\obj\Debug\Es12_Interfacce.exe
 C:\Users\l.marchisio.2268\Desktop\project_4CINF\Es12_Interfacce\Es12_Interfacce\obj\Debug\Es12_Interfacce.pdb
+C:\Users\l.marchisio.2268\Desktop\project_4CINF\Es12_Interfacce\Es12_Interfacce\obj\Debug\Es12_Interfacce.csprojAssemblyReference.cache

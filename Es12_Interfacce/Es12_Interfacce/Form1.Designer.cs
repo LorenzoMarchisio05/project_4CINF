@@ -136,16 +136,16 @@
             // dgvIscritto
             // 
             this.dgvIscritto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvIscritto.Location = new System.Drawing.Point(300, 12);
+            this.dgvIscritto.Location = new System.Drawing.Point(236, 12);
             this.dgvIscritto.Name = "dgvIscritto";
-            this.dgvIscritto.Size = new System.Drawing.Size(488, 236);
+            this.dgvIscritto.Size = new System.Drawing.Size(574, 236);
             this.dgvIscritto.TabIndex = 18;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 252);
+            this.ClientSize = new System.Drawing.Size(817, 252);
             this.Controls.Add(this.dgvIscritto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCognome);
