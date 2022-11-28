@@ -99,7 +99,6 @@ namespace Es12_Interfacce.Entity
          
 
         public bool scaduta() => DateTime.Now.Date > dataRilascio.AddYears(5).Date;
-
         
 
         public static void visualizzaDgv(DataGridView dgv)
@@ -117,8 +116,12 @@ namespace Es12_Interfacce.Entity
                 if(this.scaduta())
                 {
                     Scaduta?.Invoke("Carta D'identità scaduta");
+                    esito = false;
                 }
-                iscritti.Add(this);
+                else
+                {
+                    iscritti.Add(this);
+                }
                 
             }
             catch(Exception)
