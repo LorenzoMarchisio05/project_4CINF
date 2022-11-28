@@ -1,0 +1,9 @@
+C:\Users\l.marchisio.2268\Desktop\ExampleWinFormApp\bin\Debug\ExampleWinFormApp.exe.config
+C:\Users\l.marchisio.2268\Desktop\ExampleWinFormApp\bin\Debug\ExampleWinFormApp.exe
+C:\Users\l.marchisio.2268\Desktop\ExampleWinFormApp\bin\Debug\ExampleWinFormApp.pdb
+C:\Users\l.marchisio.2268\Desktop\ExampleWinFormApp\obj\Debug\ExampleWinFormApp.csprojAssemblyReference.cache
+C:\Users\l.marchisio.2268\Desktop\ExampleWinFormApp\obj\Debug\Es10_Delegate.frmMain.resources
+C:\Users\l.marchisio.2268\Desktop\ExampleWinFormApp\obj\Debug\ExampleWinFormApp.Properties.Resources.resources
+C:\Users\l.marchisio.2268\Desktop\ExampleWinFormApp\obj\Debug\ExampleWinFormApp.csproj.GenerateResource.cache
+C:\Users\l.marchisio.2268\Desktop\ExampleWinFormApp\obj\Debug\ExampleWinFormApp.exe
+C:\Users\l.marchisio.2268\Desktop\ExampleWinFormApp\obj\Debug\ExampleWinFormApp.pdb
