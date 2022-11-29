@@ -15,10 +15,15 @@ namespace Es06_EditorHTML
     public partial class frmEditorHTML : Form
     {
         private readonly clsFile filemanager;
+
+        private readonly clsStampa printManager;
+
         public frmEditorHTML()
         {
             InitializeComponent();
             filemanager = new clsFile();
+
+            printManager = new clsStampa();
         }
 
 
@@ -385,5 +390,19 @@ namespace Es06_EditorHTML
             }
         }
 
+        private void stampaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            printManager.Stampa(txtCodiceSorgente.Text, txtCodiceSorgente.Font);
+        }
+
+        private void anteprimadistampaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            printManager.Anteprima(txtCodiceSorgente.Text, txtCodiceSorgente.Font);
+        }
+
+        private void impostaPaginaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            printManager.ImpostaPagina();
+        }
     }
 }

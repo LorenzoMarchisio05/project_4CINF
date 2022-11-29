@@ -16,10 +16,12 @@ namespace Es06_EditorHTML
 
         #endregion
 
-        
 
+       // Documento stampa
         private readonly PrintDocument _printDocument;
 
+
+        // Finestre di dialogo
         private readonly PageSetupDialog _pageSetupDialog;
 
         private readonly PrintDialog _printDialog;
@@ -27,7 +29,7 @@ namespace Es06_EditorHTML
         private readonly PrintPreviewDialog _printPreviewDialog;
 
 
-
+        // user settings
         private string _userText;
 
         private Font _userFont;
@@ -50,6 +52,38 @@ namespace Es06_EditorHTML
             _printDocument.PrintPage += printDocument_PrintPage;
         }
 
+        public void ImpostaPagina()
+        {
+            _pageSetupDialog.ShowDialog();
+            /*
+             * In corrispondenza dell'ok i valori impostati vengono
+             * automaticamente copiati dentro il printDocument
+             */
+        }
+
+
+        public void Anteprima(string text, Font font)
+        {
+            _userText = text;
+            _userFont = font;
+
+            _printPreviewDialog.ShowDialog();
+        }
+
+
+        public void Stampa(string text, Font font)
+        {
+            _userText = text;
+            _userFont = font;
+
+            // L'utente può decidere se stampare o annullare
+            if (_printPreviewDialog.ShowDialog() == DialogResult.OK)
+            {
+                _printDocument.Print();
+            }
+        }
+
+
         private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             /*
@@ -70,6 +104,13 @@ namespace Es06_EditorHTML
                 width,
                 height
                 );
+
+            e.Graphics.DrawString(_userText, _userFont, brush, rectangle);
+
+            // per disegnare il rettangolo 
+            Pen pen = new Pen(Color.Red, 2);
+            e.Graphics.DrawRectangle(pen, rectangle);
+
         }
 
 

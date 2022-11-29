@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Es06_EditorHTML",
+    "\\Es06_EditorHTML\\Es06_EditorHTML"
   ],
-  "SelectedNode": "\\Es13_Regex.sln",
+  "SelectedNode": "\\Es06_EditorHTML\\Es06_EditorHTML\\clsStampa.cs",
   "PreviewInSolutionExplorer": false
 }
