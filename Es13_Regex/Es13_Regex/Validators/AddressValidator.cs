@@ -10,7 +10,7 @@ namespace Es13_Regex
         // corso regina elena 2B
         // strada della creusa 39
         private static Regex _validationRegex = new Regex(
-            @"^[A-Z]{3,}\d{1,}[A-Z]?$", 
+            @"^(VIA|LARGO|CORSO|STRADA|VIALE|PIAZZA)\P{L}+[A-Z]?)$", 
             RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
         public bool Validate(string input) => _validationRegex.IsMatch(input.Replace(" ", ""));
