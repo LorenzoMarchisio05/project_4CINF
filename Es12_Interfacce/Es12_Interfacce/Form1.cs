@@ -39,7 +39,7 @@ namespace Es12_Interfacce
                 dtDataRilascio.Value.ToShortDateString()
             );
 
-            
+
             iscritto.aggiungiAllaLista();
 
             Iscritto.visualizzaDgv(dgvIscritto);
