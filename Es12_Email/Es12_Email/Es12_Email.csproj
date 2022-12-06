@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Dizionario.cs" />
     <Compile Include="Interface\IDocumento.cs" />
     <Compile Include="Entity\Email.cs" />
     <Compile Include="Interface\IEmail.cs" />
@@ -61,7 +62,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\EmailValidator.cs" />
     <Compile Include="Validators\NameValidator.cs" />
-    <Compile Include="Validators\ObjectValidator.cs" />
     <Compile Include="Validators\PathValidator.cs" />
     <Compile Include="Validators\TextValidator.cs" />
     <EmbeddedResource Include="Form1.resx">
