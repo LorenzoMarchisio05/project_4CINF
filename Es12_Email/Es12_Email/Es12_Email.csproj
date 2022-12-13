@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Dizionario.cs" />
+    <Compile Include="Controllers\Lista.cs" />
     <Compile Include="Interface\IDocumento.cs" />
     <Compile Include="Entity\Email.cs" />
     <Compile Include="Interface\IEmail.cs" />
