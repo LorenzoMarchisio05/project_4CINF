@@ -25,27 +25,15 @@ namespace Es16_TextBoxPersonalizzata
             InitializeComponent();
         }
 
-        public void Maiuscolo()
-        {
-            this.Testo = this.Testo.ToUpper();
-        }
+        public void Maiuscolo() => this.Testo = this.Testo.ToUpper();
 
-        public void Minuscolo()
-        {
-            this.Testo = this.Testo.ToLower();
-        }
+        public void Minuscolo() => this.Testo = this.Testo.ToLower();
 
-        public void Pulisci()
-        {
-            this.Testo = "";
-        }
+        public void Pulisci() => this.Testo = "";
 
         private void txtTesto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(Numero && !char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            e.Handled = Numero && (!char.IsDigit(e.KeyChar) || !char.IsControl(e.KeyChar));
         }
     }
 }
