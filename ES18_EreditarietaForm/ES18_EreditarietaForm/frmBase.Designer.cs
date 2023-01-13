@@ -58,6 +58,7 @@
             this.btnAnnulla.TabIndex = 2;
             this.btnAnnulla.Text = "Annulla";
             this.btnAnnulla.UseVisualStyleBackColor = true;
+            this.btnAnnulla.Click += new System.EventHandler(this.btnAnnulla_Click);
             // 
             // btnInvia
             // 
@@ -67,6 +68,7 @@
             this.btnInvia.TabIndex = 3;
             this.btnInvia.Text = "Invia";
             this.btnInvia.UseVisualStyleBackColor = true;
+            this.btnInvia.Click += new System.EventHandler(this.btnInvia_Click);
             // 
             // frmBase
             // 
@@ -79,6 +81,7 @@
             this.Controls.Add(this.lblTesto);
             this.Name = "frmBase";
             this.Text = "Form Base";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmBase_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,8 +91,8 @@
 
         private System.Windows.Forms.Label lblTesto;
         private System.Windows.Forms.TextBox txtTesto;
-        private System.Windows.Forms.Button btnAnnulla;
         private System.Windows.Forms.Button btnInvia;
+        protected System.Windows.Forms.Button btnAnnulla;
     }
 }
 
