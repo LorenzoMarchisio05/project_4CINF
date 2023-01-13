@@ -14,5 +14,10 @@ namespace ES18_EreditarietaForm
         {
             InitializeComponent();
         }
+
+        private void btnInvia_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this.TextBoxInput);
+        }
     }
 }

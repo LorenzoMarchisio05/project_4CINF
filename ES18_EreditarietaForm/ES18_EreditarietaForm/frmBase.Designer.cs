@@ -91,8 +91,8 @@
 
         private System.Windows.Forms.Label lblTesto;
         private System.Windows.Forms.TextBox txtTesto;
-        private System.Windows.Forms.Button btnInvia;
-        protected System.Windows.Forms.Button btnAnnulla;
+        protected System.Windows.Forms.Button btnInvia;
+        private System.Windows.Forms.Button btnAnnulla;
     }
 }
 

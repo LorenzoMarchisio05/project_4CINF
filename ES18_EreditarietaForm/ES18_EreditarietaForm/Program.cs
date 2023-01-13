@@ -16,7 +16,7 @@ namespace ES18_EreditarietaForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmBase());
+            Application.Run(new frmMain());
         }
     }
 }

@@ -30,6 +30,10 @@
         {
             this.SuspendLayout();
             // 
+            // btnInvia
+            // 
+            this.btnInvia.Click += new System.EventHandler(this.btnInvia_Click);
+            // 
             // frmEditato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
