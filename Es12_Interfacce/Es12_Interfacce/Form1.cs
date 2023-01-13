@@ -31,18 +31,25 @@ namespace Es12_Interfacce
 
         private void btnAggiungi_Click(object sender, EventArgs e)
         {
-            Iscritto iscritto = new Iscritto(
-                txtNome.Text,
-                txtCognome.Text,
-                txtCodiceCarta.Text,
-                txtComune.Text,
-                dtDataRilascio.Value.ToShortDateString()
-            );
+            try
+            {
+                Iscritto iscritto = new Iscritto(
+                    txtNome.Text,
+                    txtCognome.Text,
+                    txtCodiceCarta.Text,
+                    txtComune.Text,
+                    dtDataRilascio.Value.ToShortDateString()
+                );
 
 
-            iscritto.aggiungiAllaLista();
+                iscritto.aggiungiAllaLista();
 
-            Iscritto.visualizzaDgv(dgvIscritto);
+                Iscritto.visualizzaDgv(dgvIscritto);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             
         }
     }
