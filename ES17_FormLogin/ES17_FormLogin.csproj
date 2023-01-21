@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AD2D465A-DA65-4151-8435-9F4ABA665D9F}</ProjectGuid>
+    <ProjectGuid>{3897268A-A3E7-42CD-A80D-E13C834E94BB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Es12_Email</RootNamespace>
-    <AssemblyName>Es12_Email</AssemblyName>
+    <RootNamespace>ES17_FormLogin</RootNamespace>
+    <AssemblyName>ES17_FormLogin</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,25 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\Dizionario.cs" />
-    <Compile Include="Controllers\Lista.cs" />
-    <Compile Include="Interface\IDocumento.cs" />
-    <Compile Include="Entity\Email.cs" />
-    <Compile Include="Interface\IEmail.cs" />
-    <Compile Include="Interface\IMessaggio.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interface\IVisualizza.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Validators\EmailValidator.cs" />
-    <Compile Include="Validators\NameValidator.cs" />
-    <Compile Include="Validators\PathValidator.cs" />
-    <Compile Include="Validators\TextValidator.cs" />
+    <Compile Include="UCLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCLogin.Designer.cs">
+      <DependentUpon>UCLogin.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -77,6 +72,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UCLogin.resx">
+      <DependentUpon>UCLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -90,6 +88,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

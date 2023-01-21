@@ -16,11 +16,16 @@ namespace Es12_Email
     public partial class FrmMain : Form
     {
 
-        private static List<Email> emails = new List<Email>();
         private static Dizionario dizionario = new Dizionario();
+        private static Lista lista;
         public FrmMain()
         {
             InitializeComponent();
+
+            lista = new Lista(dgv, dizionario);
+
+            lista.InsertionSuccess += new Lista.messageDelegate(lista_InsertionSuccess);
+
             try
             {
                 cmbContatti.Items.AddRange(dizionario.LeggiFile("Contatti.txt").ToArray());
@@ -31,7 +36,11 @@ namespace Es12_Email
             }
         }
 
-        
+        private void lista_InsertionSuccess(string message)
+        {
+            MessageBox.Show(message);
+        }
+
         private void btnAggiungiEmail_Click(object sender, EventArgs e)
         {
             try
@@ -43,7 +52,7 @@ namespace Es12_Email
                         txtNome.Text,
                         txtOggetto.Text
                     );
-                insert(email);
+                lista.insert(email);
                 pulisciCampi();
             }
             catch (Exception ex)
@@ -59,6 +68,7 @@ namespace Es12_Email
             {
                 txt.Text = "";
             }
+
             chkAllegato.Checked = false;
             cmbContatti.SelectedItem = null;
         }
@@ -81,13 +91,6 @@ namespace Es12_Email
             }
         }
 
-        private void insert(Email mail)
-        {
-            emails.Add(mail);
-            dgv.DataSource = null;
-            dgv.DataSource = emails;
-            dizionario.Aggiungi(mail.NomeDestinatario, mail.Indirizzo);
-        }
 
         private void cmbContatti_SelectedIndexChanged(object sender, EventArgs e)
         {
