@@ -4,7 +4,8 @@ namespace Model.Interfaces
     {
         string Id { get; }
         string Password { get; }
-        string Nome { get; }
-        string Cognome { get; }
+        string Name { get; }
+        string Surname { get; }
+        string FullName { get; }
     }
 }
