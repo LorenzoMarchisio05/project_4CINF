@@ -43,6 +43,7 @@
         <Compile Include="Entity\Manager.cs" />
         <Compile Include="Entity\Publisher.cs" />
         <Compile Include="Entity\ShopAssistant.cs" />
+        <Compile Include="Generators\IdGenerator.cs" />
         <Compile Include="Interfaces\IAdministrator.cs" />
         <Compile Include="Interfaces\IUser.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

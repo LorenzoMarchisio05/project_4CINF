@@ -1,3 +1,4 @@
+using Model.Generators;
 using Model.Interfaces;
 
 namespace Model.Entity
@@ -12,7 +13,7 @@ namespace Model.Entity
 
         public Client(string password, string name, string surname)
         {
-            Id = "...";
+            Id = IdGenerator.Generate();
             Password = password;
             Name = name;
             Surname = surname;

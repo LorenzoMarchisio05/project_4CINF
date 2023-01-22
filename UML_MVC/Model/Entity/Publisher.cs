@@ -1,3 +1,5 @@
+using Model.Generators;
+
 namespace Model.Entity
 {
     public sealed class Publisher
@@ -8,7 +10,7 @@ namespace Model.Entity
 
         public Publisher(string name, string telephone)
         {
-            Id = "...";
+            Id = IdGenerator.Generate();
             Name = name;
             Telephone = telephone;
         }

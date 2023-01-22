@@ -1,4 +1,6 @@
-﻿namespace Model.Entity
+﻿using Model.Generators;
+
+namespace Model.Entity
 {
     public sealed class Book
     {
@@ -9,6 +11,7 @@
 
         public Book(string title, string author, Publisher publisher)
         {
+            Id = IdGenerator.Generate();
             Title = title;
             Author = author;
             Publisher = publisher;

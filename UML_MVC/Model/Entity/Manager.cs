@@ -1,3 +1,4 @@
+using Model.Generators;
 using Model.Interfaces;
 
 namespace Model.Entity
@@ -9,12 +10,11 @@ namespace Model.Entity
         public string Name { get; }
         public string Surname { get; }
         public double Salary { get; }
-        
         public string FullName  => $"{Name} {Surname}";
 
-        public Manager(string id, string password, string name, string surname, double salary)
+        public Manager(string password, string name, string surname, double salary)
         {
-            Id = id;
+            Id = IdGenerator.Generate();
             Password = password;
             Name = name;
             Surname = surname;
