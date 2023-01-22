@@ -5,16 +5,16 @@ namespace Model.Entity
 {
     public sealed class Manager : IAdministrator
     {
-        public string Id { get; }
+        public string UserCode { get; }
         public string Password { get; }
         public string Name { get; }
         public string Surname { get; }
         public double Salary { get; }
         public string FullName  => $"{Name} {Surname}";
 
-        public Manager(string password, string name, string surname, double salary)
+        public Manager(string userCode, string password, string name, string surname, double salary)
         {
-            Id = IdGenerator.Generate();
+            UserCode = userCode;
             Password = password;
             Name = name;
             Surname = surname;
@@ -22,6 +22,6 @@ namespace Model.Entity
         }
 
         public override string ToString() => 
-            $"Id: {Id} Fullname: {FullName} Password: {Password} Salary: {Salary}";
+            $"UserCode: {UserCode} Fullname: {FullName} Password: {Password} Salary: {Salary}";
     }
 }

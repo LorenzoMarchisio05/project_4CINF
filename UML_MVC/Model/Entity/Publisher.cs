@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Model.Generators;
 
 namespace Model.Entity

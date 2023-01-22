@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Model;
+using Model.DTO;
 using Model.Entity;
 
 namespace Controllers
@@ -14,8 +15,15 @@ namespace Controllers
             publishers = new List<Publisher>();
         }
 
-        public Publisher GetPublisherById(string id) => 
-            publishers.FirstOrDefault(publisher => publisher.Id == id);
+        public Result<Publisher> GetPublisherById(string id) 
+        {
+            Publisher publisher = publishers.FirstOrDefault(p => p.Id == id);
 
+            return publisher is null
+                ? Result<Publisher>.Fail("No pubblisher found")
+                : Result<Publisher>.Success(publisher);
+        }
+           
+        
     }
 }

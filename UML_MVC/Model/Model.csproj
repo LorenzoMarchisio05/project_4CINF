@@ -38,6 +38,7 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="DTO\Result.cs" />
         <Compile Include="Entity\Book.cs" />
         <Compile Include="Entity\Client.cs" />
         <Compile Include="Entity\Manager.cs" />

@@ -2,7 +2,7 @@ namespace Model.Interfaces
 {
     public interface IUser
     {
-        string Id { get; }
+        string UserCode { get; }
         string Password { get; }
         string Name { get; }
         string Surname { get; }

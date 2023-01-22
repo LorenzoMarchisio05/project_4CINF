@@ -5,7 +5,7 @@ namespace Model.Entity
 {
     public sealed class ShopAssistant : IAdministrator
     {
-        public string Id { get; }
+        public string UserCode { get; }
         public string Password { get; }
         public string Name { get; }
         public string Surname { get; }
@@ -13,9 +13,9 @@ namespace Model.Entity
         public string NickNamme { get; }
         public string FullName  => $"{Name} {Surname}";
 
-        public ShopAssistant(string password, string name, string surname, string nickNamme, double salary)
+        public ShopAssistant(string userCode, string password, string name, string surname, string nickNamme, double salary)
         {
-            Id = IdGenerator.Generate();
+            UserCode = userCode;
             Password = password;
             Name = name;
             Surname = surname;
@@ -24,6 +24,6 @@ namespace Model.Entity
         }
 
         public override string ToString() => 
-            $"Id: {Id} Fullname: {FullName} Nickname: {NickNamme} Password: {Password} Salary: {Salary}";
+            $"UserCode: {UserCode} Fullname: {FullName} Nickname: {NickNamme} Password: {Password} Salary: {Salary}";
     }
 }
