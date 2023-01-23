@@ -56,7 +56,7 @@ namespace Controllers
 
         public Result<int> BuyBook(string bookId)
         {
-            Book book = books.FirstOrDefault(b => b.Id == bookId);
+            Book book = books.FirstOrDefault(b => b.IdLibro == bookId);
 
             return book is null ? 
                 Result<int>.Fail("No books found") : 

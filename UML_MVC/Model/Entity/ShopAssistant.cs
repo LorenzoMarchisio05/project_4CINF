@@ -1,4 +1,3 @@
-using Model.Generators;
 using Model.Interfaces;
 
 namespace Model.Entity
