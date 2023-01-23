@@ -18,8 +18,8 @@ namespace Model.DTO
                 Error = message
             };
 
-        public static Result<T> Success(T Data) =>
-            new Result<T>(true, Data);
+        public static Result<T> Success(T data) =>
+            new Result<T>(true, data);
         
     }
 }
