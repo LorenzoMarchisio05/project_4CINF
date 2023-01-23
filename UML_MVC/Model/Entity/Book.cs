@@ -1,23 +1,21 @@
 ﻿using Model.Generators;
+using System.Security.Policy;
 
 namespace Model.Entity
 {
     public sealed class Book
     {
-        public string Id { get; }
-        public string Title { get; }
-        public string Author { get; }
-        public Publisher Publisher { get; }
+        public string Id { get; set; }
+        public string Titolo { get; set; }
+        public string Autore { get; set; }
+        public string idCe { get; set; }
 
-        public Book(string title, string author, Publisher publisher)
+        public Book()
         {
             Id = IdGenerator.Generate();
-            Title = title;
-            Author = author;
-            Publisher = publisher;
         }
 
         public override string ToString() => 
-            $"Id: {Id} Title: {Title} Author: {Author} Publisher: {Publisher}";
+            $"Id: {Id} Title: {Titolo} Author: {Autore} Publisher ID: {idCe}";
     }
 }

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Model;
 using Model.DTO;
 using Model.Entity;
+using Newtonsoft.Json;
 
 namespace Controllers
 {
@@ -13,7 +15,7 @@ namespace Controllers
 
         public BooksController()
         {
-            books = new List<Book>();
+            books = fetchData();
         }
 
         public bool TryAddBook(Book book)
@@ -48,7 +50,7 @@ namespace Controllers
         public IReadOnlyList<Book> GetAllBooks() => books.AsReadOnly();
 
         public IReadOnlyList<Book> GetBooksFromPublisher(string pubblisherId) => books
-                .Where(book => book.Publisher.Id == pubblisherId)
+                .Where(book => book.idCe == pubblisherId)
                 .ToList()
                 .AsReadOnly();
 
@@ -59,6 +61,13 @@ namespace Controllers
             return book is null ? 
                 Result<int>.Fail("No books found") : 
                 Result<int>.Success(10);
+        }
+
+        private List<Book> fetchData()
+        {
+            string fileBuffer = File.ReadAllText("Libri.json");
+            var books = JsonConvert.DeserializeObject<List<Book>>(fileBuffer);
+            return books;
         }
 
     }

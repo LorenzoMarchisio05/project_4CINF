@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Runtime.InteropServices;
+using System.Windows.Forms;
 using Controllers;
 
 namespace View
@@ -14,7 +15,27 @@ namespace View
 
             _publisherController = new PublisherController();
             _booksController = new BooksController();
+
+            dgvCaseEditrici.DataSource = _publisherController.GetAllPublisher();
         }
-        
+
+        private void dgvCaseEditrici_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+
+            var resultCE = _publisherController.GetPublisherByIndex(index);
+
+            if(!resultCE.Ok)
+            {
+                MessageBox.Show(resultCE.Error);
+                return;
+            }
+
+            var books = _booksController.GetBooksFromPublisher(resultCE.Data.IdCe);
+
+            dgvLibri.DataSource = null;
+            dgvLibri.DataSource = books;
+
+        }
     }
 }
