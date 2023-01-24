@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Model;
 using Model.DTO;
 using Model.Entity;
@@ -11,7 +12,7 @@ namespace Controllers
 {
     public sealed class BooksController
     {
-        private readonly List<Book> books;
+        private List<Book> books;
 
         public BooksController()
         {
@@ -23,7 +24,7 @@ namespace Controllers
             try
             {
                 books.Add(book);
-                WriteBookOnFile(book, true);
+                WriteBooksOnFile();
 
                 return true;
             }
@@ -33,12 +34,12 @@ namespace Controllers
             }
         }
 
-        private static void WriteBookOnFile(Book book, bool append = false)
+        private void WriteBooksOnFile()
         {
-            using (StreamWriter sw = new StreamWriter("Libri.json", append))
+            using (StreamWriter sw = new StreamWriter("Libri.json"))
             {
-                string json = JsonConvert.SerializeObject(book);
-                sw.WriteLine(json);
+                string json = JsonConvert.SerializeObject(books);
+                sw.WriteLine(json);            
             }
         }
 
@@ -55,9 +56,9 @@ namespace Controllers
             }
         }
 
-        public bool TryRemoveBook(Book book)
+        public void RemoveBook(string id)
         {
-            return books.Remove(book);
+            books = books.Where(book => book.IdLibro != id).ToList();
         }
 
         public IReadOnlyList<Book> GetAllBooks() => books?.AsReadOnly();

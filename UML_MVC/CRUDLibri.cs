@@ -53,9 +53,19 @@ namespace View
 
         private void btnRimuovi_Click(object sender, EventArgs e)
         {
-            var idLibro = dgv.SelectedRows[0].Cells[0];
+            try
+            {
+                var idLibro = dgv.SelectedRows[0].Cells[0].ToString();
 
-            _booksController.TryRemoveBook(idLibro);
+                _booksController.RemoveBook(idLibro);
+
+                ShowBooks();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }   
         }
     }
 }
