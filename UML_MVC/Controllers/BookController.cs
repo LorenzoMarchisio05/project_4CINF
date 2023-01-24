@@ -15,7 +15,7 @@ namespace Controllers
 
         public BooksController()
         {
-            books = fetchData();
+            books = getData();
         }
 
         public bool TryAddBook(Book book)
@@ -23,6 +23,8 @@ namespace Controllers
             try
             {
                 books.Add(book);
+                WriteBookOnFile(book, true);
+
                 return true;
             }
             catch (Exception)
@@ -30,7 +32,16 @@ namespace Controllers
                 return true;
             }
         }
-        
+
+        private static void WriteBookOnFile(Book book, bool append = false)
+        {
+            using (StreamWriter sw = new StreamWriter("Libri.json", append))
+            {
+                string json = JsonConvert.SerializeObject(book);
+                sw.WriteLine(json);
+            }
+        }
+
         public bool TryAddBooks(IEnumerable<Book> books)
         {
             try
@@ -44,12 +55,14 @@ namespace Controllers
             }
         }
 
-        public bool TryRemoveBook(Book book) => 
-            books.Remove(book);
+        public bool TryRemoveBook(Book book)
+        {
+            return books.Remove(book);
+        }
 
-        public IReadOnlyList<Book> GetAllBooks() => books.AsReadOnly();
+        public IReadOnlyList<Book> GetAllBooks() => books?.AsReadOnly();
 
-        public IReadOnlyList<Book> GetBooksFromPublisher(string pubblisherId) => books
+        public IReadOnlyList<Book> GetBooksFromPublisher(string pubblisherId) => books?
                 .Where(book => book.idCe == pubblisherId)
                 .ToList()
                 .AsReadOnly();
@@ -63,11 +76,19 @@ namespace Controllers
                 Result<int>.Success(10);
         }
 
-        private List<Book> fetchData()
+        private List<Book> getData()
         {
-            string fileBuffer = File.ReadAllText("Libri.json");
-            var books = JsonConvert.DeserializeObject<List<Book>>(fileBuffer);
-            return books;
+            try
+            {
+                string fileBuffer = File.ReadAllText("Libri.json");
+                var books = JsonConvert.DeserializeObject<List<Book>>(fileBuffer);
+                return books;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            
         }
 
     }

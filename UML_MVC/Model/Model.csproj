@@ -43,8 +43,11 @@
     <Compile Include="Entity\Book.cs" />
     <Compile Include="Entity\Client.cs" />
     <Compile Include="Entity\Manager.cs" />
+    <Compile Include="Entity\NormalManager.cs" />
+    <Compile Include="Entity\PremiumManager.cs" />
     <Compile Include="Entity\Publisher.cs" />
     <Compile Include="Entity\ShopAssistant.cs" />
+    <Compile Include="Entity\VipManager.cs" />
     <Compile Include="Interfaces\IAdministrator.cs" />
     <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

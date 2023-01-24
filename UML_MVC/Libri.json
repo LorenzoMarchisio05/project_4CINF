@@ -1,0 +1,35 @@
+[{ 
+"idLibro": "10", 
+"titolo": "BIT & BYTE", 
+"autore": "VERDI", 
+"idCE": "ce1"
+} 
+, 
+{ 
+"idLibro": "1", 
+"titolo": "LA STORIA DI C#", 
+"autore": "BRUNI", 
+"idCE": "ce2"
+}
+,
+{ 
+"idLibro": "3", 
+"titolo": "MVC: LA RISCOSSA", 
+"autore": "GIALLO", 
+"idCE": "ce3"
+}
+,
+{ 
+"idLibro": "4", 
+"titolo": "A PANSA MOLA", 
+"autore": "BERGESIO", 
+"idCE": "ce3"
+}
+,
+{ 
+"idLibro": "5", 
+"titolo": "LA VITA E' BELLA", 
+"autore": "CAROLA", 
+"idCE": "ce3"
+}
+]

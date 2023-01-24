@@ -1,0 +1,18 @@
+[{ 
+"idCE": "ce1", 
+"nome": "ATLAS", 
+"telefono": "01139876", 
+} 
+, 
+{ 
+"idCE": "ce2", 
+"nome": "ZANICHELLI", 
+"telefono": "0298786", 
+}
+,
+{ 
+"idCE": "ce3", 
+"nome": "BURDISSO", 
+"telefono": "065670987", 
+}
+]

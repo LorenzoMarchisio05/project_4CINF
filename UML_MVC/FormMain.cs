@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Controllers;
 
@@ -36,6 +37,13 @@ namespace View
             dgvLibri.DataSource = null;
             dgvLibri.DataSource = books;
 
+        }
+
+        private void btnCRUDLibri_Click(object sender, System.EventArgs e)
+        {
+            var idsCe = _publisherController.GetAllPublisher().Select(publisher => publisher.IdCe).ToList();
+
+            new CRUDLibri(_booksController, idsCe).ShowDialog();
         }
     }
 }

@@ -14,17 +14,27 @@ namespace Controllers
 
         public PublisherController()
         {
-            publishers = fetchData();
+            publishers = getData();
         }
 
-        private List<Publisher> fetchData()
+        private List<Publisher> getData()
         {
-            return JsonConvert.DeserializeObject<List<Publisher>>(File.ReadAllText("CasaEd.json"));
+            try
+            {
+                return JsonConvert.DeserializeObject<List<Publisher>>(
+               File.ReadAllText("CasaEd.json")
+           );
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+           
         }
 
         public Result<Publisher> GetPublisherById(string id) 
         {
-            Publisher publisher = publishers.FirstOrDefault(p => p.IdCe == id);
+            Publisher publisher = publishers?.FirstOrDefault(p => p.IdCe == id);
 
             return publisher is null
                 ? Result<Publisher>.Fail("No pubblisher found")
@@ -42,6 +52,6 @@ namespace Controllers
         }
 
         public IReadOnlyList<Publisher> GetAllPublisher() =>
-            publishers.AsReadOnly();
+            publishers?.AsReadOnly();
     }
 }

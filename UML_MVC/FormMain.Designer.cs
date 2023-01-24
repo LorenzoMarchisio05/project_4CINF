@@ -30,6 +30,7 @@
         {
             this.dgvCaseEditrici = new System.Windows.Forms.DataGridView();
             this.dgvLibri = new System.Windows.Forms.DataGridView();
+            this.btnCRUDLibri = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCaseEditrici)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibri)).BeginInit();
             this.SuspendLayout();
@@ -48,12 +49,23 @@
             this.dgvLibri.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLibri.Location = new System.Drawing.Point(397, 12);
             this.dgvLibri.Name = "dgvLibri";
-            this.dgvLibri.Size = new System.Drawing.Size(327, 304);
+            this.dgvLibri.Size = new System.Drawing.Size(441, 304);
             this.dgvLibri.TabIndex = 1;
+            // 
+            // btnCRUDLibri
+            // 
+            this.btnCRUDLibri.Location = new System.Drawing.Point(12, 322);
+            this.btnCRUDLibri.Name = "btnCRUDLibri";
+            this.btnCRUDLibri.Size = new System.Drawing.Size(153, 23);
+            this.btnCRUDLibri.TabIndex = 2;
+            this.btnCRUDLibri.Text = "Modifica Libri";
+            this.btnCRUDLibri.UseVisualStyleBackColor = true;
+            this.btnCRUDLibri.Click += new System.EventHandler(this.btnCRUDLibri_Click);
             // 
             // frmMain
             // 
-            this.ClientSize = new System.Drawing.Size(730, 327);
+            this.ClientSize = new System.Drawing.Size(850, 350);
+            this.Controls.Add(this.btnCRUDLibri);
             this.Controls.Add(this.dgvLibri);
             this.Controls.Add(this.dgvCaseEditrici);
             this.Name = "frmMain";
@@ -68,6 +80,7 @@
 
         private System.Windows.Forms.DataGridView dgvCaseEditrici;
         private System.Windows.Forms.DataGridView dgvLibri;
+        private System.Windows.Forms.Button btnCRUDLibri;
     }
 }
 

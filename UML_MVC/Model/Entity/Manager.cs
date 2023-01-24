@@ -3,7 +3,7 @@ using Model.Interfaces;
 
 namespace Model.Entity
 {
-    public sealed class Manager : IAdministrator
+    public abstract class Manager : IAdministrator
     {
         public string UserCode { get; }
         public string Password { get; }
@@ -11,6 +11,7 @@ namespace Model.Entity
         public string Surname { get; }
         public double Salary { get; }
         public string FullName  => $"{Name} {Surname}";
+        protected abstract double SalaryMultiplier { get; }
 
         public Manager(string userCode, string password, string name, string surname, double salary)
         {
