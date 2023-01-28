@@ -94,19 +94,17 @@ namespace Controllers
         {
             var ids = books.Select(book => book.IdLibro).OrderBy(id => int.Parse(id));
 
-            for(int i = 0; i < ids.Count() - 1; i++)
+            var stringId = books.FirstOrDefault(book =>
             {
-                int id = int.Parse(ids.ElementAt(i));
-                int idNext = int.Parse(ids.ElementAt(i + 1));
+                int id = int.Parse(book.IdLibro);
+                int index = books.FindIndex(b => b == book);
+                int idNext = int.Parse(books[index].IdLibro);
+                return idNext - 1 != id;
+            })?.IdLibro;
 
-                if(idNext - 1 != id)
-                {
-                    return (idNext - 1).ToString();
-                }
-            }
+            var idAvaiable = int.Parse(stringId) + 1;
 
-            var idAviable = int.Parse(ids.Last()) + 1;
-            return idAviable.ToString();
+            return idAvaiable.ToString();
         }
     }
 }
