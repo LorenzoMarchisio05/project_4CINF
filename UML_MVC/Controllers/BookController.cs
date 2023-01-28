@@ -12,7 +12,7 @@ namespace Controllers
 {
     public sealed class BooksController
     {
-        private List<Book> books;
+        private readonly List<Book> books;
 
         public BooksController()
         {
@@ -56,14 +56,12 @@ namespace Controllers
             }
         }
 
-        public void RemoveBook(string id)
-        {
-            books = books.Where(book => book.IdLibro != id).ToList();
-        }
+        public void RemoveBook(string id) => books
+            .RemoveAt(books.FindIndex(book => book.IdLibro == id));
 
-        public IReadOnlyList<Book> GetAllBooks() => books?.AsReadOnly();
+        public IReadOnlyList<Book> GetAllBooks() => books.AsReadOnly();
 
-        public IReadOnlyList<Book> GetBooksFromPublisher(string pubblisherId) => books?
+        public IReadOnlyList<Book> GetBooksFromPublisher(string pubblisherId) => books
                 .Where(book => book.idCe == pubblisherId)
                 .ToList()
                 .AsReadOnly();
@@ -92,5 +90,23 @@ namespace Controllers
             
         }
 
+        public string GetFirstIdAvaiable()
+        {
+            var ids = books.Select(book => book.IdLibro).OrderBy(id => int.Parse(id));
+
+            for(int i = 0; i < ids.Count() - 1; i++)
+            {
+                int id = int.Parse(ids.ElementAt(i));
+                int idNext = int.Parse(ids.ElementAt(i + 1));
+
+                if(idNext - 1 != id)
+                {
+                    return (idNext - 1).ToString();
+                }
+            }
+
+            var idAviable = int.Parse(ids.Last()) + 1;
+            return idAviable.ToString();
+        }
     }
 }

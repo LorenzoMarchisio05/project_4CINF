@@ -35,6 +35,8 @@ namespace View
 
         private void btnCrea_Click(object sender, EventArgs e)
         {
+            txtId.Text = _booksController.GetFirstIdAvaiable();
+
             var book = new Book
             {
                 Autore = txtAutore.Text,
@@ -55,16 +57,18 @@ namespace View
         {
             try
             {
-                var idLibro = dgv.SelectedRows[0].Cells[0].ToString();
+                for(int i = 0; i < dgv.SelectedRows.Count; i++)
+                {
+                    var idLibro = dgv.SelectedRows[i].Cells[0].Value.ToString();
 
-                _booksController.RemoveBook(idLibro);
-
+                    _booksController.RemoveBook(idLibro);
+                }
                 ShowBooks();
+
             }
             catch (Exception)
             {
-
-                throw;
+                MessageBox.Show("Seleziona la riga da eliminare");
             }   
         }
     }
