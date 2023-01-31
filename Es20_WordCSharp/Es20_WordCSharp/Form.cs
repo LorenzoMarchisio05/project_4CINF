@@ -23,6 +23,12 @@ namespace Es20_WordCSharp
             _wordHandler = new WordHandler();
         }
 
+        private void Form_Load(object sender, EventArgs e)
+        {
+            cmbFont.DataSource = null;
+            cmbFont.DataSource = _wordHandler.GetAllFonts();
+        }
+
         private void btnNewDocument_Click(object sender, EventArgs e)
         {
             _wordHandler.CreateDocument();
@@ -32,7 +38,9 @@ namespace Es20_WordCSharp
         {
             object start = 0,
                    end = 0;
-            _wordHandler.InsertText(start, end, txtText.Text);
+            _wordHandler.SetRange(ref start, ref end);
+            _wordHandler.InsertText(start, end, txtText.Text, "\n");
         }
+
     }
 }

@@ -32,6 +32,8 @@
             this.lblTesto = new System.Windows.Forms.Label();
             this.txtText = new System.Windows.Forms.TextBox();
             this.btnInsertText = new System.Windows.Forms.Button();
+            this.lblFont = new System.Windows.Forms.Label();
+            this.cmbFont = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnNewDocument
@@ -71,17 +73,37 @@
             this.btnInsertText.UseVisualStyleBackColor = true;
             this.btnInsertText.Click += new System.EventHandler(this.btnInsertText_Click);
             // 
+            // lblFont
+            // 
+            this.lblFont.AutoSize = true;
+            this.lblFont.Location = new System.Drawing.Point(12, 47);
+            this.lblFont.Name = "lblFont";
+            this.lblFont.Size = new System.Drawing.Size(28, 13);
+            this.lblFont.TabIndex = 4;
+            this.lblFont.Text = "Font";
+            // 
+            // cmbFont
+            // 
+            this.cmbFont.FormattingEnabled = true;
+            this.cmbFont.Location = new System.Drawing.Point(12, 63);
+            this.cmbFont.Name = "cmbFont";
+            this.cmbFont.Size = new System.Drawing.Size(121, 21);
+            this.cmbFont.TabIndex = 5;
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(169, 234);
+            this.Controls.Add(this.cmbFont);
+            this.Controls.Add(this.lblFont);
             this.Controls.Add(this.btnInsertText);
             this.Controls.Add(this.txtText);
             this.Controls.Add(this.lblTesto);
             this.Controls.Add(this.btnNewDocument);
             this.Name = "Form";
             this.Text = "Word C#";
+            this.Load += new System.EventHandler(this.Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -93,6 +115,8 @@
         private System.Windows.Forms.Label lblTesto;
         private System.Windows.Forms.TextBox txtText;
         private System.Windows.Forms.Button btnInsertText;
+        private System.Windows.Forms.Label lblFont;
+        private System.Windows.Forms.ComboBox cmbFont;
     }
 }
 

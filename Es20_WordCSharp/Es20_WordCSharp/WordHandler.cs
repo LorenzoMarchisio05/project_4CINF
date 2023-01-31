@@ -29,11 +29,30 @@ namespace WordCSharp
             document = application.Documents.Add();
         }
 
-        public void InsertText(object start, object end, string text)
+
+        public void SetRange(ref object start, ref object end)
+        {
+            start = document.Sentences[document.Sentences.Count].End - 1;
+            end = document.Sentences[document.Sentences.Count].End;
+        }
+
+        public void InsertText(object start, object end, string text, string newLine = "")
         {
             var range = document.Range(ref start, ref end);
-            
-            range.Text = text;
+
+            range.Text = text + newLine; 
         }
+
+        public void AppendText(string text, string newLine = "")
+        {
+            object start = 0,
+                   end = 0;
+
+            SetRange(ref start, ref start);
+
+            InsertText(start, end, text, newLine);
+        }
+
+        
     }
 }
