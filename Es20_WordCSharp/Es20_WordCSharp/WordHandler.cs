@@ -121,6 +121,45 @@ namespace WordCSharp
         {
             var range = document.Range(ref start, ref end);
 
+            var table = document.Tables.Add(range, rowCount, columnCount);
+
+            table.Borders.Enable = 1;
+
+            return table;
+        }
+
+        public void WriteTableCell(
+            Table table,
+            int r,
+            int c,
+            string text,
+            string font = "Arial",
+            string size = "8",
+            string underline = "None",
+            string align = "Left",
+            bool bold = false,
+            bool italic = false,
+            string color = "Black")
+        {
+            var range = table.Cell(r, c).Range;
+
+
+            range.Font.Name = font;
+
+            range.Font.Size = float.Parse(size);
+
+            range.Underline = (WdUnderline)Enum.Parse(typeof(WdUnderline), $"wdUnderline{underline}");
+
+            range.ParagraphFormat.Alignment = (WdParagraphAlignment)Enum.Parse(typeof(WdParagraphAlignment), $"wdAlignParagraph{align}");
+
+            range.Bold = Convert.ToInt32(bold);
+
+            range.Italic = Convert.ToInt32(italic);
+
+            range.Font.Color = (WdColor)Enum.Parse(typeof(WdColor), $"wdColor{color}");
+
+            range.Text = text;
+
 
         }
     }

@@ -80,6 +80,8 @@ namespace Es20_WordCSharp
             _wordHandler.SetRange(ref start, ref end);
 
             var table = _wordHandler.InsertTable(start, end, r, c);
+
+            _wordHandler.WriteTableCell(table, r, c, "testo");
         }
     }
 }
