@@ -1,5 +1,4 @@
-﻿using Microsoft.Office.Interop.Word;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using WordCSharp;
+using Microsoft.Office.Interop.Word;
 
 namespace Es20_WordCSharp
 {
@@ -79,9 +79,34 @@ namespace Es20_WordCSharp
 
             _wordHandler.SetRange(ref start, ref end);
 
+            // nb: i need to put a \n to not aggregate to the previous table
             var table = _wordHandler.InsertTable(start, end, r, c);
+            _wordHandler.AppendText("\n");
 
-            _wordHandler.WriteTableCell(table, r, c, "testo");
+            _wordHandler.WriteTableCell(table,
+                r,
+                c,
+                "testo",
+                WdColor.wdColorRose,
+                WdCellVerticalAlignment.wdCellAlignVerticalTop,
+                WdParagraphAlignment.wdAlignParagraphRight,
+                WdColor.wdColorBlack,
+                true,
+                25);
         }
+
+        private void btnCreatePdf_Click(object sender, EventArgs e)
+        {
+            string path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\prova.pdf";
+            _wordHandler.createPDF(path, true);
+        }
+
+        private void btnSaveDoc_Click(object sender, EventArgs e)
+        {
+            string path = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\prova.docx";
+            _wordHandler.SaveDocumentAndClose(path);
+        }
+
+        private void btnPrintDocument_Click(object sender, EventArgs e) => _wordHandler.printDocument();
     }
 }

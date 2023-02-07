@@ -50,6 +50,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnInsertTable = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnCreatePdf = new System.Windows.Forms.Button();
+            this.btnSaveDoc = new System.Windows.Forms.Button();
+            this.btnPrintDocument = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +85,7 @@
             // 
             // btnInsertText
             // 
-            this.btnInsertText.Location = new System.Drawing.Point(416, 328);
+            this.btnInsertText.Location = new System.Drawing.Point(425, 328);
             this.btnInsertText.Name = "btnInsertText";
             this.btnInsertText.Size = new System.Drawing.Size(118, 23);
             this.btnInsertText.TabIndex = 3;
@@ -253,11 +256,44 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tabella";
             // 
+            // btnCreatePdf
+            // 
+            this.btnCreatePdf.Location = new System.Drawing.Point(292, 12);
+            this.btnCreatePdf.Name = "btnCreatePdf";
+            this.btnCreatePdf.Size = new System.Drawing.Size(118, 23);
+            this.btnCreatePdf.TabIndex = 22;
+            this.btnCreatePdf.Text = "Crea PDF";
+            this.btnCreatePdf.UseVisualStyleBackColor = true;
+            this.btnCreatePdf.Click += new System.EventHandler(this.btnCreatePdf_Click);
+            // 
+            // btnSaveDoc
+            // 
+            this.btnSaveDoc.Location = new System.Drawing.Point(168, 12);
+            this.btnSaveDoc.Name = "btnSaveDoc";
+            this.btnSaveDoc.Size = new System.Drawing.Size(118, 23);
+            this.btnSaveDoc.TabIndex = 23;
+            this.btnSaveDoc.Text = "Salva e chiudi word";
+            this.btnSaveDoc.UseVisualStyleBackColor = true;
+            this.btnSaveDoc.Click += new System.EventHandler(this.btnSaveDoc_Click);
+            // 
+            // btnPrintDocument
+            // 
+            this.btnPrintDocument.Location = new System.Drawing.Point(419, 12);
+            this.btnPrintDocument.Name = "btnPrintDocument";
+            this.btnPrintDocument.Size = new System.Drawing.Size(118, 23);
+            this.btnPrintDocument.TabIndex = 24;
+            this.btnPrintDocument.Text = "Stampa";
+            this.btnPrintDocument.UseVisualStyleBackColor = true;
+            this.btnPrintDocument.Click += new System.EventHandler(this.btnPrintDocument_Click);
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 363);
+            this.ClientSize = new System.Drawing.Size(552, 363);
+            this.Controls.Add(this.btnPrintDocument);
+            this.Controls.Add(this.btnSaveDoc);
+            this.Controls.Add(this.btnCreatePdf);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cmbColor);
             this.Controls.Add(this.label4);
@@ -309,6 +345,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnInsertTable;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnCreatePdf;
+        private System.Windows.Forms.Button btnSaveDoc;
+        private System.Windows.Forms.Button btnPrintDocument;
     }
 }
 

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 
 namespace WordCSharp
 {
@@ -133,34 +134,65 @@ namespace WordCSharp
             int r,
             int c,
             string text,
-            string font = "Arial",
-            string size = "8",
-            string underline = "None",
-            string align = "Left",
+            WdColor cellColor = WdColor.wdColorWhite,
+            WdCellVerticalAlignment verticalAlignment = WdCellVerticalAlignment.wdCellAlignVerticalCenter,
+            WdParagraphAlignment paragraphAlignment = WdParagraphAlignment.wdAlignParagraphCenter,
+            WdColor color = WdColor.wdColorBlack,
             bool bold = false,
-            bool italic = false,
-            string color = "Black")
+            float size = 12f)
         {
             var range = table.Cell(r, c).Range;
 
+            range.Cells.VerticalAlignment = verticalAlignment;
 
-            range.Font.Name = font;
+            range.Paragraphs.Alignment = paragraphAlignment;
 
-            range.Font.Size = float.Parse(size);
+            range.Bold = Convert.ToInt16(bold);
 
-            range.Underline = (WdUnderline)Enum.Parse(typeof(WdUnderline), $"wdUnderline{underline}");
+            range.Shading.BackgroundPatternColor = cellColor;
 
-            range.ParagraphFormat.Alignment = (WdParagraphAlignment)Enum.Parse(typeof(WdParagraphAlignment), $"wdAlignParagraph{align}");
+            range.Font.Color = color;
 
-            range.Bold = Convert.ToInt32(bold);
-
-            range.Italic = Convert.ToInt32(italic);
-
-            range.Font.Color = (WdColor)Enum.Parse(typeof(WdColor), $"wdColor{color}");
+            range.Font.Size = size;
 
             range.Text = text;
 
+        }
 
+        public void createPDF(string path, bool open = false)
+        {
+            document.ExportAsFixedFormat(path, WdExportFormat.wdExportFormatPDF, open);
+        }
+
+        public void printDocument()
+        {
+            document.PrintOut();
+        }
+
+        public void SaveDocumentAndClose(string fileName = "")
+        {
+            SaveDocument(fileName);
+            CloseDocument();
+        }
+
+        public void SaveDocument(string fileName = "")
+        {
+            if(fileName == "")
+            {
+                document.Save();
+            }
+            else
+            {
+                document.SaveAs2(fileName);
+            }
+        }
+
+        public void CloseDocument()
+        {
+            // da impostare se voglio chiudere word senza salvare
+            document.Saved = true;
+            document.Close();
+            application.Quit();
         }
     }
 }
