@@ -42,6 +42,8 @@ namespace Es20_WordCSharp
             cmbColonne.DataSource = cmbRighe.DataSource;
 
             cmbRighe.SelectedIndex = cmbColonne.SelectedIndex = 1;
+
+            txtReplaceWith.Enabled = false;
         }
 
         private void btnNewDocument_Click(object sender, EventArgs e)
@@ -108,5 +110,61 @@ namespace Es20_WordCSharp
         }
 
         private void btnPrintDocument_Click(object sender, EventArgs e) => _wordHandler.printDocument();
+
+        private void btnClose_Click(object sender, EventArgs e) => _wordHandler.CloseDocument();
+
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "docx | *.docx";
+                openFileDialog.Title = "Seleziona un file";
+                openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                openFileDialog.ShowDialog();
+
+                string path = openFileDialog.FileName;
+                _wordHandler.Open(path, true);
+            }
+        }
+
+        private void btnSelectText_Click(object sender, EventArgs e)
+        {
+            if(!int.TryParse(txtSelectFrom.Text, out int start) ||
+                !int.TryParse(txtSelectTo.Text, out int end))
+            {
+                MessageBox.Show("Formato range non valido");
+                return;
+            }
+
+            // contrllo range esista
+            if(!_wordHandler.DoRangeExist(start, end))
+            {
+                MessageBox.Show("Range non valido");
+                return;
+            }
+
+            string text = _wordHandler.SelectTextFromTo(start, end);
+
+            MessageBox.Show($"Hai selezionato: {text}");
+        }
+
+
+        private void chkReplaceText_CheckedChanged(object sender, EventArgs e)
+        {
+            txtReplaceWith.Enabled = chkReplaceText.Checked;
+        }
+
+        private void btnSearchReplace_Click(object sender, EventArgs e)
+        {
+            object start = 0, end = 0;
+
+            bool textFound = _wordHandler.SearchText(txtSearchFor.Text, ref start, ref end);
+
+            if(textFound && chkReplaceText.Checked)
+            {
+                _wordHandler.ReplaceText(start, end, txtReplaceWith.Text);
+            }
+
+        }
     }
 }

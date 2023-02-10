@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Reflection;
 
 namespace WordCSharp
 {
@@ -19,15 +18,22 @@ namespace WordCSharp
         /// </summary>
         private Document document;
 
-
-        
-        public void CreateDocument(bool visible = true)
+        private void OpenWord(bool visible = true)
         {
-            // istanzio applicazione word
             application = new Application
             {
                 Visible = visible
             };
+        }
+        
+        public void CreateDocument(bool visible = true)
+        {
+            // istanzio applicazione word
+            if(application is null)
+            {
+                OpenWord();
+            }
+           
             document = new Document();
             document = application.Documents.Add();
         }
@@ -177,7 +183,7 @@ namespace WordCSharp
 
         public void SaveDocument(string fileName = "")
         {
-            if(fileName == "")
+            if(fileName is "")
             {
                 document.Save();
             }
@@ -193,6 +199,45 @@ namespace WordCSharp
             document.Saved = true;
             document.Close();
             application.Quit();
+        }
+
+        public void Open(string path, bool visible = true)
+        {
+            OpenWord(visible);
+            document = application.Documents.Open(path);
+        }
+
+        public bool DoRangeExist(int start, int end)
+        {
+            object start_obj = 0, end_obj = 0;
+            this.SetRange(ref start_obj, ref end_obj);
+
+            return (start <= end)  
+                && (end <= Convert.ToInt32(end_obj))
+                && (start >= 0);
+        }
+
+        public string SelectTextFromTo(object start, object end)
+        {
+            var range = document.Range(ref start, ref end);
+            range.Select();
+            return range.Text;
+        }
+
+        public string GetTextFromTo(object start, object end) => document
+            .Range(ref start, ref end)
+            .Text;
+
+        public bool SearchText(string text, ref object start, ref object end)
+        {
+            return false;
+        }
+
+        public void ReplaceText(object start, object end, string text)
+        {
+            document
+                .Range(ref start, ref end)
+                .Text = text;
         }
     }
 }
