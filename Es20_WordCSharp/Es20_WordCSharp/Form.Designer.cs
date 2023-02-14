@@ -53,7 +53,24 @@
             this.btnCreatePdf = new System.Windows.Forms.Button();
             this.btnSaveDoc = new System.Windows.Forms.Button();
             this.btnPrintDocument = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.lblSelectFrom = new System.Windows.Forms.Label();
+            this.txtSelectFrom = new System.Windows.Forms.TextBox();
+            this.txtSelectTo = new System.Windows.Forms.TextBox();
+            this.lblSelectTo = new System.Windows.Forms.Label();
+            this.btnSelectText = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.chkReplaceText = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnSearchReplace = new System.Windows.Forms.Button();
+            this.txtSearchFor = new System.Windows.Forms.TextBox();
+            this.txtReplaceWith = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnNewDocument
@@ -80,12 +97,12 @@
             this.txtText.Location = new System.Drawing.Point(12, 133);
             this.txtText.Multiline = true;
             this.txtText.Name = "txtText";
-            this.txtText.Size = new System.Drawing.Size(384, 218);
+            this.txtText.Size = new System.Drawing.Size(437, 315);
             this.txtText.TabIndex = 2;
             // 
             // btnInsertText
             // 
-            this.btnInsertText.Location = new System.Drawing.Point(425, 328);
+            this.btnInsertText.Location = new System.Drawing.Point(468, 192);
             this.btnInsertText.Name = "btnInsertText";
             this.btnInsertText.Size = new System.Drawing.Size(118, 23);
             this.btnInsertText.TabIndex = 3;
@@ -184,7 +201,7 @@
             // cmbColor
             // 
             this.cmbColor.FormattingEnabled = true;
-            this.cmbColor.Location = new System.Drawing.Point(416, 117);
+            this.cmbColor.Location = new System.Drawing.Point(555, 63);
             this.cmbColor.Name = "cmbColor";
             this.cmbColor.Size = new System.Drawing.Size(121, 21);
             this.cmbColor.TabIndex = 15;
@@ -192,7 +209,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(416, 101);
+            this.label4.Location = new System.Drawing.Point(555, 47);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 14;
@@ -203,7 +220,7 @@
             this.cmbRighe.FormattingEnabled = true;
             this.cmbRighe.Location = new System.Drawing.Point(6, 32);
             this.cmbRighe.Name = "cmbRighe";
-            this.cmbRighe.Size = new System.Drawing.Size(121, 21);
+            this.cmbRighe.Size = new System.Drawing.Size(99, 21);
             this.cmbRighe.TabIndex = 17;
             // 
             // label5
@@ -220,7 +237,7 @@
             this.cmbColonne.FormattingEnabled = true;
             this.cmbColonne.Location = new System.Drawing.Point(5, 72);
             this.cmbColonne.Name = "cmbColonne";
-            this.cmbColonne.Size = new System.Drawing.Size(121, 21);
+            this.cmbColonne.Size = new System.Drawing.Size(100, 21);
             this.cmbColonne.TabIndex = 19;
             // 
             // label6
@@ -236,7 +253,7 @@
             // 
             this.btnInsertTable.Location = new System.Drawing.Point(6, 99);
             this.btnInsertTable.Name = "btnInsertTable";
-            this.btnInsertTable.Size = new System.Drawing.Size(118, 23);
+            this.btnInsertTable.Size = new System.Drawing.Size(99, 23);
             this.btnInsertTable.TabIndex = 20;
             this.btnInsertTable.Text = "Inserisci Tabella";
             this.btnInsertTable.UseVisualStyleBackColor = true;
@@ -249,16 +266,16 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cmbColonne);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(416, 144);
+            this.groupBox1.Location = new System.Drawing.Point(759, 323);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(132, 140);
+            this.groupBox1.Size = new System.Drawing.Size(117, 125);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tabella";
             // 
             // btnCreatePdf
             // 
-            this.btnCreatePdf.Location = new System.Drawing.Point(292, 12);
+            this.btnCreatePdf.Location = new System.Drawing.Point(295, 12);
             this.btnCreatePdf.Name = "btnCreatePdf";
             this.btnCreatePdf.Size = new System.Drawing.Size(118, 23);
             this.btnCreatePdf.TabIndex = 22;
@@ -268,7 +285,7 @@
             // 
             // btnSaveDoc
             // 
-            this.btnSaveDoc.Location = new System.Drawing.Point(168, 12);
+            this.btnSaveDoc.Location = new System.Drawing.Point(468, 163);
             this.btnSaveDoc.Name = "btnSaveDoc";
             this.btnSaveDoc.Size = new System.Drawing.Size(118, 23);
             this.btnSaveDoc.TabIndex = 23;
@@ -286,11 +303,159 @@
             this.btnPrintDocument.UseVisualStyleBackColor = true;
             this.btnPrintDocument.Click += new System.EventHandler(this.btnPrintDocument_Click);
             // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(468, 131);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(118, 23);
+            this.btnClose.TabIndex = 25;
+            this.btnClose.Text = "Chiudi word";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnOpen
+            // 
+            this.btnOpen.Location = new System.Drawing.Point(163, 12);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(126, 23);
+            this.btnOpen.TabIndex = 26;
+            this.btnOpen.Text = "Apri Documento Word";
+            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            // 
+            // lblSelectFrom
+            // 
+            this.lblSelectFrom.AutoSize = true;
+            this.lblSelectFrom.Location = new System.Drawing.Point(6, 16);
+            this.lblSelectFrom.Name = "lblSelectFrom";
+            this.lblSelectFrom.Size = new System.Drawing.Size(71, 13);
+            this.lblSelectFrom.TabIndex = 27;
+            this.lblSelectFrom.Text = "Seleziona da:";
+            // 
+            // txtSelectFrom
+            // 
+            this.txtSelectFrom.Location = new System.Drawing.Point(5, 32);
+            this.txtSelectFrom.Name = "txtSelectFrom";
+            this.txtSelectFrom.Size = new System.Drawing.Size(100, 20);
+            this.txtSelectFrom.TabIndex = 28;
+            // 
+            // txtSelectTo
+            // 
+            this.txtSelectTo.Location = new System.Drawing.Point(5, 84);
+            this.txtSelectTo.Name = "txtSelectTo";
+            this.txtSelectTo.Size = new System.Drawing.Size(100, 20);
+            this.txtSelectTo.TabIndex = 30;
+            // 
+            // lblSelectTo
+            // 
+            this.lblSelectTo.AutoSize = true;
+            this.lblSelectTo.Location = new System.Drawing.Point(6, 68);
+            this.lblSelectTo.Name = "lblSelectTo";
+            this.lblSelectTo.Size = new System.Drawing.Size(85, 13);
+            this.lblSelectTo.TabIndex = 29;
+            this.lblSelectTo.Text = "Seleziona fino a:";
+            // 
+            // btnSelectText
+            // 
+            this.btnSelectText.Location = new System.Drawing.Point(6, 110);
+            this.btnSelectText.Name = "btnSelectText";
+            this.btnSelectText.Size = new System.Drawing.Size(97, 23);
+            this.btnSelectText.TabIndex = 31;
+            this.btnSelectText.Text = "Seleziona testo";
+            this.btnSelectText.UseVisualStyleBackColor = true;
+            this.btnSelectText.Click += new System.EventHandler(this.btnSelectText_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblSelectFrom);
+            this.groupBox2.Controls.Add(this.btnSelectText);
+            this.groupBox2.Controls.Add(this.txtSelectFrom);
+            this.groupBox2.Controls.Add(this.txtSelectTo);
+            this.groupBox2.Controls.Add(this.lblSelectTo);
+            this.groupBox2.Location = new System.Drawing.Point(759, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(117, 145);
+            this.groupBox2.TabIndex = 32;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.chkReplaceText);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.btnSearchReplace);
+            this.groupBox3.Controls.Add(this.txtSearchFor);
+            this.groupBox3.Controls.Add(this.txtReplaceWith);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Location = new System.Drawing.Point(759, 163);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(117, 154);
+            this.groupBox3.TabIndex = 33;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "groupBox3";
+            // 
+            // chkReplaceText
+            // 
+            this.chkReplaceText.AutoSize = true;
+            this.chkReplaceText.Location = new System.Drawing.Point(14, 125);
+            this.chkReplaceText.Name = "chkReplaceText";
+            this.chkReplaceText.Size = new System.Drawing.Size(100, 17);
+            this.chkReplaceText.TabIndex = 32;
+            this.chkReplaceText.Text = "Rimpiazza testo";
+            this.chkReplaceText.UseVisualStyleBackColor = true;
+            this.chkReplaceText.CheckedChanged += new System.EventHandler(this.chkReplaceText_CheckedChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(91, 13);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Testo da cercare:";
+            // 
+            // btnSearchReplace
+            // 
+            this.btnSearchReplace.Location = new System.Drawing.Point(7, 96);
+            this.btnSearchReplace.Name = "btnSearchReplace";
+            this.btnSearchReplace.Size = new System.Drawing.Size(97, 23);
+            this.btnSearchReplace.TabIndex = 31;
+            this.btnSearchReplace.Text = "Ricerca testo";
+            this.btnSearchReplace.UseVisualStyleBackColor = true;
+            this.btnSearchReplace.Click += new System.EventHandler(this.btnSearchReplace_Click);
+            // 
+            // txtSearchFor
+            // 
+            this.txtSearchFor.Location = new System.Drawing.Point(5, 32);
+            this.txtSearchFor.Name = "txtSearchFor";
+            this.txtSearchFor.Size = new System.Drawing.Size(100, 20);
+            this.txtSearchFor.TabIndex = 28;
+            // 
+            // txtReplaceWith
+            // 
+            this.txtReplaceWith.Location = new System.Drawing.Point(3, 70);
+            this.txtReplaceWith.Name = "txtReplaceWith";
+            this.txtReplaceWith.Size = new System.Drawing.Size(100, 20);
+            this.txtReplaceWith.TabIndex = 30;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(4, 54);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(75, 13);
+            this.label8.TabIndex = 29;
+            this.label8.Text = "Sostituisci con";
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(552, 363);
+            this.ClientSize = new System.Drawing.Size(891, 460);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.btnOpen);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnPrintDocument);
             this.Controls.Add(this.btnSaveDoc);
             this.Controls.Add(this.btnCreatePdf);
@@ -316,6 +481,10 @@
             this.Load += new System.EventHandler(this.Form_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,6 +517,21 @@
         private System.Windows.Forms.Button btnCreatePdf;
         private System.Windows.Forms.Button btnSaveDoc;
         private System.Windows.Forms.Button btnPrintDocument;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.Label lblSelectFrom;
+        private System.Windows.Forms.TextBox txtSelectFrom;
+        private System.Windows.Forms.TextBox txtSelectTo;
+        private System.Windows.Forms.Label lblSelectTo;
+        private System.Windows.Forms.Button btnSelectText;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnSearchReplace;
+        private System.Windows.Forms.TextBox txtSearchFor;
+        private System.Windows.Forms.TextBox txtReplaceWith;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox chkReplaceText;
     }
 }
 
