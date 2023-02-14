@@ -228,16 +228,45 @@ namespace WordCSharp
             .Range(ref start, ref end)
             .Text;
 
-        public bool SearchText(string text, ref object start, ref object end)
+        public bool SearchAndReplaceText(
+            object searchText,
+            ref object start,
+            ref object end,
+            object replacementText = null)
         {
-            return false;
+            object missing = Type.Missing;
+
+            var find = application.Selection.Find;
+
+            // tolgo formattazione, ricerca e sostituzione insensitive
+            find.ClearFormatting();
+            find.Replacement.ClearFormatting();
+
+            application.Selection.Start = document.Content.Start;
+
+
+            if (!(replacementText is null))
+            {
+                 find.Execute(
+                    ref searchText,
+                    missing, missing, missing, missing,
+                    missing, missing, missing, missing,
+                    ref replacementText,
+                    WdReplace.wdReplaceAll);
+            }
+            else
+            {
+                find.Execute(ref searchText);
+            }
+
+            if(find.Found)
+            {
+                start = application.Selection.Start;
+                end = application.Selection.End;
+            }
+
+            return find.Found;
         }
 
-        public void ReplaceText(object start, object end, string text)
-        {
-            document
-                .Range(ref start, ref end)
-                .Text = text;
-        }
     }
 }

@@ -158,12 +158,11 @@ namespace Es20_WordCSharp
         {
             object start = 0, end = 0;
 
-            bool textFound = _wordHandler.SearchText(txtSearchFor.Text, ref start, ref end);
+            bool textFound = _wordHandler.SearchAndReplaceText(txtSearchFor.Text, ref start, ref end, chkReplaceText.Checked ? txtReplaceWith.Text : null);
 
-            if(textFound && chkReplaceText.Checked)
-            {
-                _wordHandler.ReplaceText(start, end, txtReplaceWith.Text);
-            }
+            MessageBox.Show(textFound ?
+                $"Testo trovato e sostituito at {start}" :
+                "Testo non trovato");
 
         }
     }

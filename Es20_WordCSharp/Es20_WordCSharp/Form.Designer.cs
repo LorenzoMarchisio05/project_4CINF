@@ -377,7 +377,7 @@
             this.groupBox2.Size = new System.Drawing.Size(117, 145);
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Select";
             // 
             // groupBox3
             // 
@@ -392,7 +392,7 @@
             this.groupBox3.Size = new System.Drawing.Size(117, 154);
             this.groupBox3.TabIndex = 33;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
+            this.groupBox3.Text = "Find and replace";
             // 
             // chkReplaceText
             // 
