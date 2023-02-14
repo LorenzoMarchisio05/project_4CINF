@@ -12,9 +12,12 @@ namespace Es21_EsercizioDB
 {
     public partial class Form : System.Windows.Forms.Form
     {
+
+        const string sqlQuery = @"";
         public Form()
         {
             InitializeComponent();
+
         }
     }
 }
