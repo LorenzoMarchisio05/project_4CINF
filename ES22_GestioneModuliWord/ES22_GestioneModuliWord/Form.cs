@@ -45,7 +45,7 @@ namespace ES22_GestioneModuliWord
 
             _wordHandler.AppendText("\nMaggiorenne: ");
 
-            _wordHandler.AddComboBox(start, end, "cmbNazionalita", new string[] { "apolide", "italiano", "inglese"} );
+            _wordHandler.AddComboBox(start, end, "cmbNazionalita", new Dictionary<string, string>() { { "1", "italiano"}, { "2", "inglese"}, { "3", "apolide"} });
         }
     }
 }

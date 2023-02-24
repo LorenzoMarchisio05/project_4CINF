@@ -293,7 +293,7 @@ namespace WordCSharp
             checkbox.Title = name;
         }
 
-        public void AddComboBox(object start, object end, string name, IEnumerable<string> options)
+        public void AddComboBox(object start, object end, string name, Dictionary<string, string> options)
         {
             var range = document.Range(ref start, ref end);
 
@@ -303,11 +303,22 @@ namespace WordCSharp
 
             combobox.Title = name;
 
-            foreach(string entry in options)
+            int i = 0;
+            foreach(var keyValues in options)
             {
-                combobox.DropdownListEntries.Add(entry, entry);
+                combobox.DropdownListEntries.Add(keyValues.Value, keyValues.Key, i);
+                i++;
             }
-               
+        }
+
+        public void ProtectDocument(object password)
+        {
+            document.Protect(WdProtectionType.wdAllowOnlyFormFields, Type.Missing, password);
+        }
+
+        public void UnProtectDocument(object password)
+        {
+            document.Protect(WdProtectionType.wdNoProtection);
         }
 
         #endregion
