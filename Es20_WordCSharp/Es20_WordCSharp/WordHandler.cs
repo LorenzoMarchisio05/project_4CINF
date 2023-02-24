@@ -119,7 +119,7 @@ namespace WordCSharp
             object start = 0,
                    end = 0;
 
-            SetRange(ref start, ref start);
+            SetRange(ref start, ref end);
 
             InsertText(text, start, end, newLine);
         }
@@ -268,5 +268,48 @@ namespace WordCSharp
             return find.Found;
         }
 
+        #region Moduli
+
+        public void AddTextBox(object start, object end, string name, string placeholder = "")
+        {
+            var range = document.Range(ref start, ref end);
+
+            ContentControl textbox = document
+                .ContentControls
+                .Add(WdContentControlType.wdContentControlText);
+
+            textbox.Title = name;
+            textbox.Range.Text = placeholder;
+        }
+
+        public void AddChekBox(object start, object end, string name)
+        {
+            var range = document.Range(ref start, ref end);
+
+            ContentControl checkbox = document
+                .ContentControls
+                .Add(WdContentControlType.wdContentControlCheckBox);
+
+            checkbox.Title = name;
+        }
+
+        public void AddComboBox(object start, object end, string name, IEnumerable<string> options)
+        {
+            var range = document.Range(ref start, ref end);
+
+            ContentControl combobox = document
+                .ContentControls
+                .Add(WdContentControlType.wdContentControlComboBox);
+
+            combobox.Title = name;
+
+            foreach(string entry in options)
+            {
+                combobox.DropdownListEntries.Add(entry, entry);
+            }
+               
+        }
+
+        #endregion
     }
 }

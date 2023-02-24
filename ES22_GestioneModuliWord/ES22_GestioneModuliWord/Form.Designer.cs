@@ -28,13 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.BtnCreaModulo = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // BtnCreaModulo
+            // 
+            this.BtnCreaModulo.Location = new System.Drawing.Point(52, 53);
+            this.BtnCreaModulo.Name = "BtnCreaModulo";
+            this.BtnCreaModulo.Size = new System.Drawing.Size(109, 28);
+            this.BtnCreaModulo.TabIndex = 0;
+            this.BtnCreaModulo.Text = "Crea Modulo";
+            this.BtnCreaModulo.UseVisualStyleBackColor = true;
+            this.BtnCreaModulo.Click += new System.EventHandler(this.BtnCreaModulo_Click);
+            // 
+            // Form
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.BtnCreaModulo);
+            this.Name = "Form";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button BtnCreaModulo;
     }
 }
 
