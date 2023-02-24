@@ -318,7 +318,7 @@ namespace WordCSharp
 
         public void UnProtectDocument(object password)
         {
-            document.Protect(WdProtectionType.wdNoProtection);
+            document.Unprotect(ref password);
         }
 
         #endregion
