@@ -321,6 +321,21 @@ namespace WordCSharp
             document.Unprotect(ref password);
         }
 
+        public IReadOnlyDictionary<string, string> ReadAllModules()
+        {
+            var titleTextData = new Dictionary<string, string>(document.ContentControls.Count);
+            
+            foreach (ContentControl control in document.ContentControls)
+            {
+                titleTextData.Add(
+                        control.Title,
+                        control.Range.Text
+                    );
+            }
+
+            return titleTextData;
+        }
+
         #endregion
     }
 }
