@@ -17,7 +17,8 @@ select * from ALUNNI;
 -- visualizzare se è maggiorenne o minorenne
 select *,
 iif(
-	datediff(YEAR, dataNascita, getdate()) > 18, 
+	datediff(YEAR, dataNascita, getdate()) > 18 or 
+		(datediff(YEAR, dataNascita, getdate()) = 18 and month(getdate()) >= month(dataNascita)), 
 	'maggiorenne', 
 	iif( month(getdate()) = month(dataNascita), 
 		'quasi maggiorenne', 
