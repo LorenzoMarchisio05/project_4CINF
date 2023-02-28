@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Es20_WordCSharp;
+using Microsoft.Office.Interop.Word;
 using WordCSharp;
 
 namespace ES22_GestioneModuliWord
@@ -31,7 +32,7 @@ namespace ES22_GestioneModuliWord
             object start = 0,
                    end = 0;
 
-            _wordHandler.AppendText("Nome: ");
+            _wordHandler.InsertText("Nome: ", 0, 0);
 
             _wordHandler.SetRange(ref start, ref end);
 
@@ -39,15 +40,40 @@ namespace ES22_GestioneModuliWord
 
             _wordHandler.SetRange(ref start, ref end);
 
-            _wordHandler.AppendText("\nMaggiorenne: ");
+
+
+            _wordHandler.InsertText("\nMaggiorenne: ", start, end);
+
+            _wordHandler.SetRange(ref start, ref end);
 
             _wordHandler.AddChekBox(start, end, "chkMaggiorenne");
 
-            _wordHandler.AppendText("\nMaggiorenne: ");
+            _wordHandler.SetRange(ref start, ref end);
+
+
+            _wordHandler.InsertText("\nNazionalità: ", start, end);
+
+            _wordHandler.SetRange(ref start, ref end);
 
             _wordHandler.AddComboBox(start, end, "cmbNazionalita", new Dictionary<string, string>() { { "1", "italiano"}, { "2", "inglese"}, { "3", "apolide"} });
 
+            _wordHandler.SetRange(ref start, ref end);
+
+
             _wordHandler.ProtectDocument("password");
+        }
+
+        private void btnLeggiDatiModulo_Click(object sender, EventArgs e)
+        {
+            var data = _wordHandler.ReadAllModulesData();
+
+            foreach(var titleDataPairs in data)
+            {
+                MessageBox.Show(titleDataPairs.Value);
+            }
+
+            MessageBox.Show(_wordHandler.ReadDataByName("txtNome"));
+
         }
     }
 }

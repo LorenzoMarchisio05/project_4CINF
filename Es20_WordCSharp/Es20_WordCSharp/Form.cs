@@ -123,7 +123,7 @@ namespace Es20_WordCSharp
                 openFileDialog.ShowDialog();
 
                 string path = openFileDialog.FileName;
-                _wordHandler.Open(path, true);
+                _wordHandler.OpenDocument(path, true);
             }
         }
 

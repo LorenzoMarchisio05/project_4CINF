@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.BtnCreaModulo = new System.Windows.Forms.Button();
+            this.btnLeggiDatiModulo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnCreaModulo
@@ -41,11 +42,22 @@
             this.BtnCreaModulo.UseVisualStyleBackColor = true;
             this.BtnCreaModulo.Click += new System.EventHandler(this.BtnCreaModulo_Click);
             // 
+            // btnLeggiDatiModulo
+            // 
+            this.btnLeggiDatiModulo.Location = new System.Drawing.Point(186, 53);
+            this.btnLeggiDatiModulo.Name = "btnLeggiDatiModulo";
+            this.btnLeggiDatiModulo.Size = new System.Drawing.Size(109, 28);
+            this.btnLeggiDatiModulo.TabIndex = 1;
+            this.btnLeggiDatiModulo.Text = "Leggi Dati Modulo";
+            this.btnLeggiDatiModulo.UseVisualStyleBackColor = true;
+            this.btnLeggiDatiModulo.Click += new System.EventHandler(this.btnLeggiDatiModulo_Click);
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLeggiDatiModulo);
             this.Controls.Add(this.BtnCreaModulo);
             this.Name = "Form";
             this.Text = "Form1";
@@ -56,6 +68,7 @@
         #endregion
 
         private System.Windows.Forms.Button BtnCreaModulo;
+        private System.Windows.Forms.Button btnLeggiDatiModulo;
     }
 }
 

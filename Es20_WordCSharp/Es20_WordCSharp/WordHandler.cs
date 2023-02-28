@@ -75,6 +75,7 @@ namespace WordCSharp
                 .Select(count => count.ToString())
                 .ToList();
 
+        #region word operations
 
         public void SetRange(ref object start, ref object end)
         {
@@ -124,6 +125,10 @@ namespace WordCSharp
             InsertText(text, start, end, newLine);
         }
 
+        #endregion
+
+        #region word tables
+
         public Table InsertTable(object start, object end, int rowCount, int columnCount)
         {
             var range = document.Range(ref start, ref end);
@@ -165,6 +170,8 @@ namespace WordCSharp
 
         }
 
+        #endregion
+
         public void createPDF(string path, bool open = false)
         {
             document.ExportAsFixedFormat(path, WdExportFormat.wdExportFormatPDF, open);
@@ -193,17 +200,24 @@ namespace WordCSharp
             }
         }
 
+        public void CloseApplication()
+        {
+            application.Quit();
+        }
+
         public void CloseDocument()
         {
             // da impostare se voglio chiudere word senza salvare
             document.Saved = true;
             document.Close();
-            application.Quit();
         }
 
-        public void Open(string path, bool visible = true)
+        public void OpenDocument(string path, bool visible = true)
         {
-            OpenWord(visible);
+            if(application is null)
+            {
+                OpenWord(visible);
+            }
             document = application.Documents.Open(path);
         }
 
@@ -272,11 +286,13 @@ namespace WordCSharp
 
         public void AddTextBox(object start, object end, string name, string placeholder = "")
         {
+
             var range = document.Range(ref start, ref end);
 
             ContentControl textbox = document
                 .ContentControls
-                .Add(WdContentControlType.wdContentControlText);
+                .Add(WdContentControlType.wdContentControlText, range);
+
 
             textbox.Title = name;
             textbox.Range.Text = placeholder;
@@ -288,7 +304,7 @@ namespace WordCSharp
 
             ContentControl checkbox = document
                 .ContentControls
-                .Add(WdContentControlType.wdContentControlCheckBox);
+                .Add(WdContentControlType.wdContentControlCheckBox, range);
 
             checkbox.Title = name;
         }
@@ -299,7 +315,7 @@ namespace WordCSharp
 
             ContentControl combobox = document
                 .ContentControls
-                .Add(WdContentControlType.wdContentControlComboBox);
+                .Add(WdContentControlType.wdContentControlComboBox, range);
 
             combobox.Title = name;
 
@@ -321,7 +337,7 @@ namespace WordCSharp
             document.Unprotect(ref password);
         }
 
-        public IReadOnlyDictionary<string, string> ReadAllModules()
+        public IReadOnlyDictionary<string, string> ReadAllModulesData()
         {
             var titleTextData = new Dictionary<string, string>(document.ContentControls.Count);
             
@@ -334,6 +350,35 @@ namespace WordCSharp
             }
 
             return titleTextData;
+        }
+
+        public IReadOnlyDictionary<string, string> ReadAllModulesDataOfType<TContentControlType>()
+        {
+            var contentControls = document.ContentControls.OfType<TContentControlType>();
+            var titleTextData = new Dictionary<string, string>(contentControls.Count());
+
+            foreach (ContentControl control in contentControls)
+            {
+                titleTextData.Add(
+                        control.Title,
+                        control.Range.Text
+                    );
+            }
+
+            return titleTextData;
+        }
+
+        public string ReadDataByName(string name)
+        {
+            foreach(ContentControl control in document.ContentControls)
+            {
+                if(control.Title == name)
+                {
+                    return control.Range.Text;
+                }
+            }
+
+            return "";
         }
 
         #endregion
