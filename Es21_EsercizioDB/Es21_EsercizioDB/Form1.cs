@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,11 +14,9 @@ namespace Es21_EsercizioDB
     public partial class Form : System.Windows.Forms.Form
     {
 
-        const string sqlQuery = @"";
         public Form()
         {
             InitializeComponent();
-
         }
     }
 }
