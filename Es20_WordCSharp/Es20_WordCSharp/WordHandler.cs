@@ -98,6 +98,8 @@ namespace WordCSharp
         {
             var range = document.Range(ref start, ref end);
 
+            range.Text = text + newLine;
+
             range.Font.Name = font;
 
             range.Font.Size = float.Parse(size);
@@ -111,8 +113,6 @@ namespace WordCSharp
             range.Italic = Convert.ToInt32(italic);
             
             range.Font.Color = (WdColor)Enum.Parse(typeof(WdColor), $"wdColor{color}");
-
-            range.Text = text + newLine; 
         }
 
         public void AppendText(string text, string newLine = "")

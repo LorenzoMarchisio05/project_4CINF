@@ -81,15 +81,6 @@ namespace ES23_StampaUnione
 
             _wordHandler.SetRange(ref start, ref end);
 
-            var word = new clsWord();
-
-            word.inserisciTesto(start, end, "età", "", "Comic Sans MS", "18", "Single");
-
-            _wordHandler.SetRange(ref start, ref end);
-
-            word.inserisciTesto(start, end, "età", "", "Comic Sans MS", "18", "Single");
-
-            /*
             _wordHandler.InsertText(
                    text: "età: ",
                    start: start,
@@ -102,7 +93,7 @@ namespace ES23_StampaUnione
                    bold: default,
                    italic: default,
                    color: "Blue"
-               );*/
+               );
 
 
             _wordHandler.SetRange(ref start, ref end);
