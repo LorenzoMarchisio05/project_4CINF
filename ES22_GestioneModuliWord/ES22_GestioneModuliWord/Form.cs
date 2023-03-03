@@ -72,7 +72,7 @@ namespace ES22_GestioneModuliWord
                 MessageBox.Show(titleDataPairs.Value);
             }
 
-            MessageBox.Show(_wordHandler.ReadDataByName("txtNome"));
+            MessageBox.Show(_wordHandler.ReadDataByName("chkMaggiorenne"));
 
         }
     }

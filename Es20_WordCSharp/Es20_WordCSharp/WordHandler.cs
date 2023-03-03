@@ -172,6 +172,8 @@ namespace WordCSharp
 
         #endregion
 
+        #region IO
+
         public void createPDF(string path, bool open = false)
         {
             document.ExportAsFixedFormat(path, WdExportFormat.wdExportFormatPDF, open);
@@ -220,6 +222,10 @@ namespace WordCSharp
             }
             document = application.Documents.Open(path);
         }
+
+        #endregion
+
+        #region helpers
 
         public bool DoRangeExist(int start, int end)
         {
@@ -281,6 +287,8 @@ namespace WordCSharp
 
             return find.Found;
         }
+
+        #endregion
 
         #region Moduli
 
@@ -345,28 +353,15 @@ namespace WordCSharp
             {
                 titleTextData.Add(
                         control.Title,
-                        control.Range.Text
+                        (control.Type == WdContentControlType.wdContentControlCheckBox) ?
+                            control.Checked.ToString() :
+                            control.Range.Text
                     );
             }
 
             return titleTextData;
         }
 
-        public IReadOnlyDictionary<string, string> ReadAllModulesDataOfType<TContentControlType>()
-        {
-            var contentControls = document.ContentControls.OfType<TContentControlType>();
-            var titleTextData = new Dictionary<string, string>(contentControls.Count());
-
-            foreach (ContentControl control in contentControls)
-            {
-                titleTextData.Add(
-                        control.Title,
-                        control.Range.Text
-                    );
-            }
-
-            return titleTextData;
-        }
 
         public string ReadDataByName(string name)
         {
@@ -374,7 +369,9 @@ namespace WordCSharp
             {
                 if(control.Title == name)
                 {
-                    return control.Range.Text;
+                    return (control.Type == WdContentControlType.wdContentControlCheckBox) ? 
+                        control.Checked.ToString() : 
+                        control.Range.Text;
                 }
             }
 
