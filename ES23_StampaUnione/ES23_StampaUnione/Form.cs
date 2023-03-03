@@ -82,7 +82,7 @@ namespace ES23_StampaUnione
             _wordHandler.SetRange(ref start, ref end);
 
             _wordHandler.InsertText(
-                   text: "età: ",
+                   text: "età",
                    start: start,
                    end: end,
                    newLine: "",
@@ -95,6 +95,21 @@ namespace ES23_StampaUnione
                    color: "Blue"
                );
 
+            _wordHandler.SetRange(ref start, ref end);
+
+            _wordHandler.InsertText(
+                   text: ": ",
+                   start: start,
+                   end: end,
+                   newLine: "",
+                   font: "Comic Sans MS",
+                   size: "18",
+                   underline: "None",
+                   align: "Left",
+                   bold: default,
+                   italic: default,
+                   color: "Blue"
+               );
 
             _wordHandler.SetRange(ref start, ref end);
 
