@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES23_StampaUnione", "ES23_StampaUnione\ES23_StampaUnione.csproj", "{C581063B-28CD-4A6F-A436-3261EC666632}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C581063B-28CD-4A6F-A436-3261EC666632}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C581063B-28CD-4A6F-A436-3261EC666632}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C581063B-28CD-4A6F-A436-3261EC666632}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C581063B-28CD-4A6F-A436-3261EC666632}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0FE064BB-9F2E-4611-A112-B6F285C6D2E1}
+	EndGlobalSection
+EndGlobal
