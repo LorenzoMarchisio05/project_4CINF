@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES23_StampaUnione", "ES23_StampaUnione\ES23_StampaUnione.csproj", "{C581063B-28CD-4A6F-A436-3261EC666632}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Es20_WordCSharp", "..\Es20_WordCSharp\Es20_WordCSharp\Es20_WordCSharp.csproj", "{0687B4FE-4E52-4142-BFEB-3CFEB783A998}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C581063B-28CD-4A6F-A436-3261EC666632}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C581063B-28CD-4A6F-A436-3261EC666632}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C581063B-28CD-4A6F-A436-3261EC666632}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0687B4FE-4E52-4142-BFEB-3CFEB783A998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0687B4FE-4E52-4142-BFEB-3CFEB783A998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0687B4FE-4E52-4142-BFEB-3CFEB783A998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0687B4FE-4E52-4142-BFEB-3CFEB783A998}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

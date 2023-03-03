@@ -109,7 +109,7 @@ namespace WordCSharp
             range.Bold = Convert.ToInt32(bold);
 
             range.Italic = Convert.ToInt32(italic);
-
+            
             range.Font.Color = (WdColor)Enum.Parse(typeof(WdColor), $"wdColor{color}");
 
             range.Text = text + newLine; 
