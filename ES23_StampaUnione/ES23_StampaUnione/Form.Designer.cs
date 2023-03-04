@@ -30,6 +30,7 @@
         {
             this.btnCreateModuleTemplate = new System.Windows.Forms.Button();
             this.btnReadModuleData = new System.Windows.Forms.Button();
+            this.btnOpenResume = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCreateModuleTemplate
@@ -44,7 +45,7 @@
             // 
             // btnReadModuleData
             // 
-            this.btnReadModuleData.Location = new System.Drawing.Point(237, 26);
+            this.btnReadModuleData.Location = new System.Drawing.Point(40, 99);
             this.btnReadModuleData.Name = "btnReadModuleData";
             this.btnReadModuleData.Size = new System.Drawing.Size(154, 46);
             this.btnReadModuleData.TabIndex = 1;
@@ -52,15 +53,28 @@
             this.btnReadModuleData.UseVisualStyleBackColor = true;
             this.btnReadModuleData.Click += new System.EventHandler(this.btnReadModuleData_Click);
             // 
+            // btnOpenResume
+            // 
+            this.btnOpenResume.Location = new System.Drawing.Point(40, 184);
+            this.btnOpenResume.Name = "btnOpenResume";
+            this.btnOpenResume.Size = new System.Drawing.Size(154, 46);
+            this.btnOpenResume.TabIndex = 2;
+            this.btnOpenResume.Text = "Apri repilogo";
+            this.btnOpenResume.UseVisualStyleBackColor = true;
+            this.btnOpenResume.Click += new System.EventHandler(this.btnOpenResume_Click);
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(225, 252);
+            this.Controls.Add(this.btnOpenResume);
             this.Controls.Add(this.btnReadModuleData);
             this.Controls.Add(this.btnCreateModuleTemplate);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form";
             this.Text = "Stampa Unione";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_FormClosing);
             this.ResumeLayout(false);
 
         }
@@ -69,6 +83,7 @@
 
         private System.Windows.Forms.Button btnCreateModuleTemplate;
         private System.Windows.Forms.Button btnReadModuleData;
+        private System.Windows.Forms.Button btnOpenResume;
     }
 }
 

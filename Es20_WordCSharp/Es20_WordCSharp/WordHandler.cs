@@ -204,7 +204,8 @@ namespace WordCSharp
 
         public void CloseApplication()
         {
-            application.Quit();
+            application?.Quit();
+            application = null;
         }
 
         public void CloseDocument()
