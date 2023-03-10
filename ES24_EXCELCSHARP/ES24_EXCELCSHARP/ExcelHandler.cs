@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -27,14 +28,23 @@ namespace ExcelCSharp
         /// </summary>
         private Worksheet worksheet;
 
-        public bool Visible { get; set; } = false;
+        public bool Visible
+        {
+            get => application.Visible;
+            set
+            {
+                if(application is null)
+                {
+                    OpenExcel();
+                }
+
+                application.Visible = value;
+            }
+        }
 
         public void OpenExcel()
         {
-            application = new Application
-            {
-                Visible = Visible
-            };
+            application = new Application();
         }
 
         public void CreateWorkBook()
@@ -42,35 +52,14 @@ namespace ExcelCSharp
             workbook = application.Workbooks.Add();
         }
 
-        public void CreateDocument()
+        public void AddWorkSheet(string name)
         {
-            // istanzio applicazione word
-            if (application is null)
-            {
-                OpenExcel();
-            }
-
-            worksheet = workbook.Worksheets.Add();
-        }
-
-        public void createPDF(string path, bool open = false)
-        {
-            
-        }
-
-        public void printDocument()
-        {
-        }
-
-        public void SaveDocumentAndClose(string fileName = "")
-        {
-            SaveDocument(fileName);
-            CloseDocument();
-        }
-
-        public void SaveDocument(string fileName = null)
-        {
-            worksheet.SaveAs(fileName ?? "defaultname");
+            var worksheet = (Worksheet)workbook
+                .Worksheets
+                .Add(
+                    After: workbook.Worksheets[workbook.Worksheets.Count]
+                );
+            worksheet.Name = name;
         }
 
         public void CloseApplication()
@@ -79,19 +68,50 @@ namespace ExcelCSharp
             application = null;
         }
 
-        public void CloseDocument()
+        public void SelectWorkSheet(int index)
         {
-            // da impostare se voglio chiudere word senza salvare
-            workbook.Close();
+            workbook.Sheets[index + 1].Select();
+            worksheet = (Worksheet)workbook.Worksheets[index + 1];
         }
 
-        public void OpenDocument(string path)
+        public void SelectWorkSheet(string name)
         {
-            if (application is null)
-            {
-                OpenExcel();
-            }
+            workbook.Sheets[name].Select();
+            worksheet = (Worksheet)workbook.Worksheets[name];
         }
 
+        public void RenameWorkSheet(int index, string name)
+        {
+            SelectWorkSheet(index);
+            worksheet.Name = name;
+        }
+
+        public void WriteCell(int rowIndex, int columnIndex, string value)
+        {
+            worksheet.Cells[rowIndex + 1, columnIndex + 1] = value;
+        }
+
+        public void WriteCell(string cell, string value)
+        {
+            worksheet.Range[cell.ToUpper()].Value = value;
+        }
+
+        public void WriteCells(string startCell, string endCell, string value)
+        {
+            worksheet.Range[startCell.ToUpper(), endCell.ToUpper()].Value = value;
+        }
+
+        public void CellsDecoration(string startCell,
+                                   string endCell,
+                                   string font,
+                                   int dimension,
+                                   bool bold,
+                                   bool italic,
+                                   XlRgbColor foregroundColor,
+                                   XlRgbColor backgroundColor)
+        {
+            var cells = worksheet.Range[startCell.ToUpper(), endCell.ToUpper()];
+            
+        }
     }
 }
