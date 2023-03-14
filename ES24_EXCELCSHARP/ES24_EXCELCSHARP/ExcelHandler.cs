@@ -102,16 +102,48 @@ namespace ExcelCSharp
         }
 
         public void CellsDecoration(string startCell,
-                                   string endCell,
-                                   string font,
-                                   int dimension,
-                                   bool bold,
-                                   bool italic,
-                                   XlRgbColor foregroundColor,
-                                   XlRgbColor backgroundColor)
+                                    string endCell,
+                                    string font,
+                                    int dimension,
+                                    bool bold,
+                                    bool italic,
+                                    XlRgbColor foregroundColor,
+                                    XlRgbColor backgroundColor,
+                                    bool autoFit = true)
         {
             var cells = worksheet.Range[startCell.ToUpper(), endCell.ToUpper()];
-            
+
+            cells.Font.Name = font;
+            cells.Font.Size = dimension;
+            cells.Font.Bold = bold;
+            cells.Font.Italic = italic;
+            cells.Font.Color = foregroundColor;
+            cells.Interior.Color = backgroundColor;
+
+            if (autoFit)
+            {
+                cells.EntireColumn.AutoFit();
+            }
+        }
+
+        public void CellsBorder(string startCell,
+                                string endCell,
+                                XlLineStyle lineStyle,
+                                XlBorderWeight borderWeight)
+        {
+            var cells = worksheet.Range[startCell.ToUpper(), endCell.ToUpper()];
+
+            cells.BorderAround2(lineStyle, borderWeight);
+        }
+
+        public void WriteFormula(int rowIndex, int columnIndex, string formula)
+        {
+            (worksheet.Cells[rowIndex + 1, columnIndex + 1] as Range).FormulaLocal = formula;
+        }
+
+        public void WriteFormula(string cell, string formula)
+        {
+            worksheet.Range[cell.ToUpper()].FormulaLocal = formula;
         }
     }
 }

@@ -40,10 +40,26 @@ namespace ES24_EXCELCSHARP
             _excelHandler.WriteCell(0, 0, "Asse X");
 
             _excelHandler.WriteCell("B1", "f(x)");
+                       
+            _excelHandler.CellsBorder(startCell: "A1",
+                                      endCell: "B1",
+                                      lineStyle: XlLineStyle.xlDouble,
+                                      borderWeight: XlBorderWeight.xlMedium);
+            
+            writeFunctionData(-10, 10);
 
-            _excelHandler.WriteCells("C1", "D2", "prova");
+            
+        }
 
-            _excelHandler.CellsDecoration(startCell: "C1", endCell: "D2", font: "Arial", dimension: 20, bold: true, italic: true, foregroundColor: XlRgbColor.rgbAliceBlue, backgroundColor: XlRgbColor.rgbDarkRed);
+        private void writeFunctionData(int start, int end)
+        {
+            for (int i = 1; start <= end; i++)
+            {
+                _excelHandler.WriteCell(i, 0, start.ToString());
+                _excelHandler.WriteFormula(cell: $"B{i+1}",
+                                           formula: $"=POTENZA(A{i + 1};2) - 5");
+                start++;
+            }
         }
     }
 }
