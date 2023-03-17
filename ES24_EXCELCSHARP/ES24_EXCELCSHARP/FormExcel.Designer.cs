@@ -30,6 +30,7 @@
         {
             this.btnCreateExcel = new System.Windows.Forms.Button();
             this.btnSaveAndClose = new System.Windows.Forms.Button();
+            this.btnOpenProject = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCreateExcel
@@ -52,11 +53,22 @@
             this.btnSaveAndClose.UseVisualStyleBackColor = true;
             this.btnSaveAndClose.Click += new System.EventHandler(this.btnSaveAndClose_Click);
             // 
+            // btnOpenProject
+            // 
+            this.btnOpenProject.Location = new System.Drawing.Point(35, 138);
+            this.btnOpenProject.Name = "btnOpenProject";
+            this.btnOpenProject.Size = new System.Drawing.Size(134, 23);
+            this.btnOpenProject.TabIndex = 2;
+            this.btnOpenProject.Text = "Apri Cartella";
+            this.btnOpenProject.UseVisualStyleBackColor = true;
+            this.btnOpenProject.Click += new System.EventHandler(this.btnOpenProject_Click);
+            // 
             // FormExcel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(205, 373);
+            this.Controls.Add(this.btnOpenProject);
             this.Controls.Add(this.btnSaveAndClose);
             this.Controls.Add(this.btnCreateExcel);
             this.Name = "FormExcel";
@@ -69,6 +81,7 @@
 
         private System.Windows.Forms.Button btnCreateExcel;
         private System.Windows.Forms.Button btnSaveAndClose;
+        private System.Windows.Forms.Button btnOpenProject;
     }
 }
 

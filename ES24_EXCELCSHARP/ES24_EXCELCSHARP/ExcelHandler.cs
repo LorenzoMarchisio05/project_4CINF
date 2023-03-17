@@ -43,11 +43,6 @@ namespace ExcelCSharp
             }
         }
 
-        public void OpenExcel()
-        {
-            application = new Application();
-        }
-
         public void CreateWorkBook()
         {
             workbook = application.Workbooks.Add();
@@ -61,12 +56,6 @@ namespace ExcelCSharp
                     After: workbook.Worksheets[workbook.Worksheets.Count]
                 );
             worksheet.Name = name;
-        }
-
-        public void CloseApplication()
-        {
-            application?.Quit();
-            application = null;
         }
 
         public void SelectWorkSheet(int index)
@@ -100,6 +89,11 @@ namespace ExcelCSharp
         public void WriteCells(string startCell, string endCell, string value)
         {
             worksheet.Range[startCell.ToUpper(), endCell.ToUpper()].Value = value;
+        }
+
+        public string ReadCell(string cell)
+        {
+            return Convert.ToString(worksheet.Cells[cell].Range.Value);
         }
 
         public void CellsDecoration(string startCell,
@@ -301,11 +295,45 @@ namespace ExcelCSharp
         public void SaveAndClose(string path)
         {
             Save(path);
+            CloseWorkBook();
         }
 
         public void CloseWorkBook()
         {
             workbook.Close();
+        }
+
+        public void CloseApplication()
+        {
+            application?.Quit();
+            application = null;
+        }
+
+        public void OpenExcel()
+        {
+            application = new Application();
+        }
+
+        public void OpenWorkBook(string path, bool visible, int sheetIndex = 0)
+        {
+            Visible = visible;
+            if(application is null)
+            {
+                OpenExcel();
+            }
+            workbook = application.Workbooks.Open(path);
+            SelectWorkSheet(sheetIndex);
+        }
+
+        public void OpenWorkBook(string path, bool visible, string sheetName)
+        {
+            Visible = visible;
+            if (application is null)
+            {
+                OpenExcel();
+            }
+            workbook = application.Workbooks.Open(path);
+            SelectWorkSheet(sheetName);
         }
     }
 }

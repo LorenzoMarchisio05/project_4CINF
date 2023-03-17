@@ -99,5 +99,15 @@ namespace ES24_EXCELCSHARP
         {
             _excelHandler.SaveAndClose($@"{System.Windows.Forms.Application.StartupPath}\grafico");
         }
+
+        private void btnOpenProject_Click(object sender, EventArgs e)
+        {
+            _excelHandler.OpenWorkBook($@"{System.Windows.Forms.Application.StartupPath}\grafico", true);
+
+            for(int i = 0; i < 22; i++)
+            {
+                MessageBox.Show(_excelHandler.ReadCell($"B{i + 1}"));
+            }
+        }
     }
 }
