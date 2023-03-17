@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -144,6 +145,167 @@ namespace ExcelCSharp
         public void WriteFormula(string cell, string formula)
         {
             worksheet.Range[cell.ToUpper()].FormulaLocal = formula;
+        }
+
+        public Range GetRange(string cellStart, string cellEnd)
+        {
+            return worksheet.Range[cellStart.ToUpper(), cellEnd.ToUpper()];
+        }
+
+        #region Grafico
+
+        public ChartObject CreateGraph(double left,
+                                       double top,
+                                       double width,
+                                       int height,
+                                       XlChartType type,
+                                       string dataStartCell,
+                                       string dataEndCell,
+                                       string title = null,
+                                       Color? titleForegroundColor = null,
+                                       Color? titleBorderColor = null,
+                                       Color? legendBorderColor = null,
+                                       string seriesName = null)
+        {
+            var charts = worksheet.ChartObjects() as ChartObjects;
+            var chart = charts.Add(left, top, width, height);
+
+            chart.Chart.ChartType = type;
+
+            var range = worksheet.Range[dataStartCell.ToUpper(), dataEndCell.ToUpper()];
+            chart.Chart.SetSourceData(range);
+
+            if(!(title is null))
+            {
+                chart.Chart.HasTitle = true;
+                chart.Chart.ChartTitle.Text = title;
+            }
+            if(!(titleForegroundColor is null))
+            {
+                chart.Chart.ChartTitle.Font.Color = ColorTranslator.ToOle(titleForegroundColor ?? Color.Black);
+            }
+            if (!(titleBorderColor is null))
+            {
+                chart.Chart.ChartTitle.Border.Color = ColorTranslator.ToOle(titleBorderColor ?? Color.Black);
+            }
+
+            if(!(legendBorderColor is null))
+            {
+                chart.Chart.HasLegend = true;
+                chart.Chart.Legend.Border.Color = ColorTranslator.ToOle(legendBorderColor ?? Color.Black);
+            }
+            if(!(seriesName is null))
+            {
+                var serie = chart.Chart.SeriesCollection(1) as Series;
+                serie.HasDataLabels = false;
+                serie.Name = seriesName;
+            }
+
+            return chart;
+        }
+
+        public ChartObject CreateGraph(double left,
+                                       double top,
+                                       double width,
+                                       int height,
+                                       XlChartType type,
+                                       Range dataRange,
+                                       string title = null,
+                                       Color? titleForegroundColor = null,
+                                       Color? titleBorderColor = null,
+                                       Color? legendBorderColor = null,
+                                       string seriesName = null)
+        {
+            /*
+            var address = dataRange
+                .Cells[dataRange.Row, dataRange.Column]
+                .Address;
+            var addresses = dataRange
+                .Cells[dataRange.Row, dataRange.Column]
+                .Address
+                .Split(':');
+
+            var startCell = addresses[0];
+            var endCell = addresses[1];
+
+            return this.CreateGraph(left,
+                               top,
+                               width,
+                               height,
+                               type,
+                               startCell,
+                               endCell,
+                               title,
+                               titleForegroundColor,
+                               titleBorderColor,
+                               legendBorderColor,
+                               seriesName);
+            */
+            var charts = worksheet.ChartObjects() as ChartObjects;
+            var chart = charts.Add(left, top, width, height);
+
+            chart.Chart.ChartType = type;
+          
+            chart.Chart.SetSourceData(dataRange);
+
+            if (!(title is null))
+            {
+                chart.Chart.HasTitle = true;
+                chart.Chart.ChartTitle.Text = title;
+            }
+            if (!(titleForegroundColor is null))
+            {
+                chart.Chart.ChartTitle.Font.Color = ColorTranslator.ToOle(titleForegroundColor ?? Color.Black);
+            }
+            if (!(titleBorderColor is null))
+            {
+                chart.Chart.ChartTitle.Border.Color = ColorTranslator.ToOle(titleBorderColor ?? Color.Black);
+            }
+
+            if (!(legendBorderColor is null))
+            {
+                chart.Chart.HasLegend = true;
+                chart.Chart.Legend.Border.Color = ColorTranslator.ToOle(legendBorderColor ?? Color.Black);
+            }
+            if (!(seriesName is null))
+            {
+                var serie = chart.Chart.SeriesCollection(1) as Series;
+                serie.HasDataLabels = false;
+                serie.Name = seriesName;
+            }
+
+            return chart;
+        }
+
+        public bool ExportGraph(string path, string extension, ChartObject chart)
+        {
+            try
+            {
+                chart.Chart.Export($"{path}.{extension.ToLower()}", extension.ToUpper());
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        #endregion
+
+
+        public void Save(string path)
+        {
+            workbook.SaveAs(path);
+        }
+
+        public void SaveAndClose(string path)
+        {
+            Save(path);
+        }
+
+        public void CloseWorkBook()
+        {
+            workbook.Close();
         }
     }
 }
