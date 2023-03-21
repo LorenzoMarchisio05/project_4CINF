@@ -65,9 +65,8 @@ namespace ES24_EXCELCSHARP
             _excelHandler.ExportGraph(path: $@"{System.Windows.Forms.Application.StartupPath}\grafico",
                                       extension: "gif",
                                       chart);
-            
 
-            Range range = _excelHandler.GetRange("A2", "B22");
+            var range = _excelHandler.GetRange("A2", "B22");
 
             _excelHandler.SelectWorkSheet(1);
 
@@ -104,10 +103,16 @@ namespace ES24_EXCELCSHARP
         {
             _excelHandler.OpenWorkBook($@"{System.Windows.Forms.Application.StartupPath}\grafico", true);
 
-            for(int i = 0; i < 22; i++)
+            _excelHandler.SelectWorkSheet(0);
+
+            int i = 1;
+            string s = "";
+            do
             {
-                MessageBox.Show(_excelHandler.ReadCell($"B{i + 1}"));
+                MessageBox.Show(s);
+                i++;
             }
+            while ((s = _excelHandler.ReadCell($"B{i + 1}")) != null);
         }
     }
 }

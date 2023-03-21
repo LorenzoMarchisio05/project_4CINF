@@ -67,12 +67,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(205, 373);
+            this.ClientSize = new System.Drawing.Size(205, 191);
             this.Controls.Add(this.btnOpenProject);
             this.Controls.Add(this.btnSaveAndClose);
             this.Controls.Add(this.btnCreateExcel);
             this.Name = "FormExcel";
-            this.Text = "Form1";
+            this.Text = "Excel";
             this.ResumeLayout(false);
 
         }

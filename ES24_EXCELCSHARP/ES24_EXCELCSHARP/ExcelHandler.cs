@@ -93,7 +93,7 @@ namespace ExcelCSharp
 
         public string ReadCell(string cell)
         {
-            return Convert.ToString(worksheet.Cells[cell].Range.Value);
+            return Convert.ToString(worksheet.Range[cell].Value);
         }
 
         public void CellsDecoration(string startCell,
@@ -286,6 +286,23 @@ namespace ExcelCSharp
 
         #endregion
 
+        public (int, int) GetColumnsRows(int sheetIndex)
+        {
+            SelectWorkSheet(sheetIndex);
+            return (
+                    worksheet.UsedRange.Column - 1 + worksheet.UsedRange.Columns.Count,
+                    worksheet.UsedRange.Row - 1 + worksheet.UsedRange.Rows.Count
+                );
+        }
+
+        public (int, int) GetColumnsRows(string sheetName)
+        {
+            SelectWorkSheet(sheetName);
+            return (
+                    worksheet.UsedRange.Column - 1 + worksheet.UsedRange.Columns.Count,
+                    worksheet.UsedRange.Row - 1 + worksheet.UsedRange.Rows.Count
+                );
+        }
 
         public void Save(string path)
         {
