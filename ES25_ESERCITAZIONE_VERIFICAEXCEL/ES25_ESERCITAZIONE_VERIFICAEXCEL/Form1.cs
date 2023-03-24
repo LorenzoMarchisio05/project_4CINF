@@ -123,6 +123,10 @@ namespace ES25_ESERCITAZIONE_VERIFICAEXCEL
 
             _excelHandler.CreateGraph(500, 75, 400, 400, Microsoft.Office.Interop.Excel.XlChartType.xlPie, "B2", $"C{datiGroupedByAge.Count + 1}", "Maschi / Femmine");
 
+            _excelHandler.SaveAndClose($@"{System.Windows.Forms.Application.StartupPath}\riepilogo.xlsx");
+
+            _excelHandler.CloseApplication();
+
         }
 
         private List<IEnumerable<string>> getData(string[] files)
