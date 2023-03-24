@@ -307,7 +307,7 @@ namespace WordCSharp
             textbox.Range.Text = placeholder;
         }
 
-        public void AddChekBox(object start, object end, string name)
+        public void AddCheckBox(object start, object end, string name)
         {
             var range = document.Range(ref start, ref end);
 
