@@ -51,7 +51,13 @@ namespace thread7
 
         private static void lancia(object args)
         {
-            
+            int n = (int)args;
+
+            for (int i = 0; i < 100; i++)
+            {
+                int lancio = rnd.Next(n);
+                risultati[lancio]++;
+            }
         }
     }
 }
