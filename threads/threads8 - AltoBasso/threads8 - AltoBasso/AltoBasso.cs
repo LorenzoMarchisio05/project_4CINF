@@ -19,9 +19,7 @@ namespace threads8___AltoBasso
             {
                 generaNumeroSegreto();
 
-                Thread indovina = new Thread(Indovina);
-
-                indovina.Start("alto;101");
+                new Thread(Indovina).Start("alto;101");
             }
 
             private static void generaNumeroSegreto()
