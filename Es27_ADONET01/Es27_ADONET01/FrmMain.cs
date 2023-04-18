@@ -8,10 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using System.Data;
 using System.Data.SqlClient;
-using System.Runtime.InteropServices;
-using System.Dynamic;
 
 namespace Es27_ADONET01
 {
@@ -23,8 +20,6 @@ namespace Es27_ADONET01
         }
 
         private static SqlConnection connection;
-        private static SqlCommand command;
-        private static SqlDataAdapter adapter;
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
@@ -39,6 +34,40 @@ namespace Es27_ADONET01
             connection = ConnectToDatabase(connectionString);
 
             LoadSubjectsToComboBox(cmbSubjects);
+
+            LoadStudentsToComboBox(cmbStudents);
+        }
+
+        private void LoadStudentsToComboBox(ComboBox cmb)
+        {
+            if (connection is null)
+            {
+                MessageBox.Show("No DB connection");
+                return;
+            }
+
+            try
+            {
+                var command = new SqlCommand
+                {
+                    Connection = connection,
+                    CommandType = CommandType.Text,
+                    CommandText = @"SELECT idALUNNO, UPPER(nome + ' ' + cognome) as nominativo 
+                                    FROM ALUNNI 
+                                    ORDER BY cognome, nome;"
+                };
+
+                var subjects = ExecuteCommandToDataTable(command);
+
+                cmb.DataSource = subjects;
+                cmb.DisplayMember = "nominativo";
+                cmb.ValueMember = "idALUNNO";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Errore esecuzione query: {ex.Message}");
+            }
         }
 
         private void LoadSubjectsToComboBox(ComboBox cmb)
@@ -51,11 +80,12 @@ namespace Es27_ADONET01
 
             try
             {
-                command = new SqlCommand
+                var command = new SqlCommand
                 {
                     Connection = connection,
                     CommandType = CommandType.Text,
-                    CommandText = @"SELECT IDMATERIA, MATERIA FROM MATERIE"
+                    CommandText = @"SELECT IDMATERIA, MATERIA 
+                                    FROM MATERIE;"
                 };
 
                 var subjects = ExecuteCommandToDataTable(command);
@@ -105,11 +135,12 @@ namespace Es27_ADONET01
 
             try
             {
-                command = new SqlCommand
+                var command = new SqlCommand
                 {
                     Connection = connection,
                     CommandType = CommandType.Text,
-                    CommandText = @"SELECT COUNT(*) FROM ALUNNI"
+                    CommandText = @"SELECT COUNT(*) 
+                                    FROM ALUNNI;"
                 };
 
                 var studentsCount = (int)command.ExecuteScalar();
@@ -132,11 +163,12 @@ namespace Es27_ADONET01
 
             try
             {
-                command = new SqlCommand
+                var command = new SqlCommand
                 {
                     Connection = connection,
                     CommandType = CommandType.Text,
-                    CommandText = @"SELECT * FROM ALUNNI"
+                    CommandText = @"SELECT * 
+                                    FROM ALUNNI;"
                 };
 
                 var students = ExecuteCommandToDataTable(command);
@@ -164,29 +196,31 @@ namespace Es27_ADONET01
             return data;
         }
 
-        private void cmbSubjects_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnInsertMark_Click(object sender, EventArgs e)
         {
-            var id = cmbSubjects.SelectedValue;
-
             if (connection is null)
             {
                 MessageBox.Show("No DB connection");
                 return;
             }
 
+            var voto = nudMark.Value;
+            var idAlunno = Convert.ToInt32(cmbStudents.SelectedValue);
+            var idMateria = cmbSubjects.SelectedValue.ToString();
+
             try
             {
-                command = new SqlCommand
+                var command = new SqlCommand
                 {
                     Connection = connection,
                     CommandType = CommandType.Text,
-                    CommandText = $@"SELECT * FROM VOTI WHERE IdAlunno = {id}"
+                    CommandText = $@"INSERT INTO VOTI 
+                                    (Voto, idAlunno, idMateria)
+                                    VALUES
+                                    ({voto}, {idAlunno}, '{idMateria}');"
                 };
 
-                var marks = ExecuteCommandToDataTable(command);
-
-                dgv.DataSource = null;
-                dgv.DataSource = marks;
+                command.ExecuteNonQuery();
 
             }
             catch (Exception ex)
