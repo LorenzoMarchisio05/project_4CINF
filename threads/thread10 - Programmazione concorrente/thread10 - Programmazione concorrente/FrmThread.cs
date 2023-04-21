@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,7 +20,7 @@ namespace thread10___Programmazione_concorrente
 
         private void FrmThread_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnLock_Click(object sender, EventArgs e)
