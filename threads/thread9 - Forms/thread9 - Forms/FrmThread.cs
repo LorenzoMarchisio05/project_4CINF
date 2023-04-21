@@ -14,7 +14,6 @@ namespace thread9___Forms
 {
     public partial class FrmThread : Form
     {
-
         private static readonly CancellationTokenSource cts = new CancellationTokenSource();
 
         private const int MAX = 1000;
