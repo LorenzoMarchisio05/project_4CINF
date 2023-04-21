@@ -21,5 +21,25 @@ namespace thread10___Programmazione_concorrente
         {
 
         }
+
+        private void btnLock_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMutex_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSemaphore_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSemaphoreSlim_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
