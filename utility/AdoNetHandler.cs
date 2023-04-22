@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace AdoNetSqlHandler
 {
-    class AdoNetSqlHandler
+    public sealed class AdoNetSqlHandler
     {
         private SqlConnection connection;
        
