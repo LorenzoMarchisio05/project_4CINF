@@ -40,6 +40,7 @@
             this.btnInsertMark = new System.Windows.Forms.Button();
             this.btnShowMarks = new System.Windows.Forms.Button();
             this.btnInserMarkWithPK = new System.Windows.Forms.Button();
+            this.btnInertVoto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMark)).BeginInit();
             this.SuspendLayout();
@@ -180,11 +181,21 @@
             this.btnInserMarkWithPK.UseVisualStyleBackColor = true;
             this.btnInserMarkWithPK.Click += new System.EventHandler(this.btnInserMarkWithPK_Click);
             // 
+            // btnInertVoto
+            // 
+            this.btnInertVoto.Location = new System.Drawing.Point(18, 221);
+            this.btnInertVoto.Name = "btnInertVoto";
+            this.btnInertVoto.Size = new System.Drawing.Size(146, 22);
+            this.btnInertVoto.TabIndex = 13;
+            this.btnInertVoto.Text = "Inserisci Voto";
+            this.btnInertVoto.UseVisualStyleBackColor = true;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1020, 394);
+            this.Controls.Add(this.btnInertVoto);
             this.Controls.Add(this.btnInserMarkWithPK);
             this.Controls.Add(this.btnShowMarks);
             this.Controls.Add(this.btnInsertMark);
@@ -223,6 +234,7 @@
         private System.Windows.Forms.Button btnInsertMark;
         private System.Windows.Forms.Button btnShowMarks;
         private System.Windows.Forms.Button btnInserMarkWithPK;
+        private System.Windows.Forms.Button btnInertVoto;
     }
 }
 
