@@ -25,7 +25,7 @@ namespace AdoNetSqlHandler
             var connectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={Application.StartupPath}\\{dbName};Integrated Security=True;Connect Timeout=30";
             var connection = new SqlConnection
             {
-                ConnectionString = cnString,
+                ConnectionString = connectionString,
             };
             
             connection.Open();

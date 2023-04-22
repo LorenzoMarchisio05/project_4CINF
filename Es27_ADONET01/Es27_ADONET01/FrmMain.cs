@@ -14,16 +14,11 @@ namespace Es27_ADONET01
 {
     public partial class FrmMain : Form
     {
+
+        private readonly SqlConnection connection;
         public FrmMain()
         {
             InitializeComponent();
-        }
-
-        private static SqlConnection connection;
-
-        private void FrmMain_Load(object sender, EventArgs e)
-        {
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             var dbname = "DB_4C_2023.mdf";
             var connectionString = $@"Data Source = (LocalDB)\MSSQLLocalDB;
@@ -32,6 +27,11 @@ namespace Es27_ADONET01
                                       Connect Timeout = 30";
 
             connection = ConnectToDatabase(connectionString);
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             LoadSubjectsToComboBox(cmbSubjects);
 
@@ -210,17 +210,106 @@ namespace Es27_ADONET01
 
             try
             {
+                
                 var command = new SqlCommand
                 {
                     Connection = connection,
                     CommandType = CommandType.Text,
-                    CommandText = $@"INSERT INTO VOTI 
+                    CommandText = @"INSERT INTO VOTI 
                                     (Voto, idAlunno, idMateria)
                                     VALUES
-                                    ({voto}, {idAlunno}, '{idMateria}');"
+                                    (@voto, @idAlunno, @idMateria);"
                 };
 
+                command.Parameters.AddRange(
+                    new SqlParameter[]
+                    {
+                        new SqlParameter("@voto", SqlDbType.Float) { Value = voto},
+                        new SqlParameter("@idAlunno", SqlDbType.Int) { Value = idAlunno },
+                        new SqlParameter("@idMateria", SqlDbType.VarChar, 50) { Value = idMateria }
+                    });
+
+                command.Prepare();
+
                 command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Errore esecuzione query: {ex.Message}");
+            }
+        }
+
+        private void btnShowMarks_Click(object sender, EventArgs e)
+        {
+            if (connection is null)
+            {
+                MessageBox.Show("No DB connection");
+                return;
+            }
+
+            try
+            {
+                var command = new SqlCommand
+                {
+                    Connection = connection,
+                    CommandType = CommandType.Text,
+                    CommandText = @"SELECT * 
+                                    FROM VOTI;"
+                };
+
+                var marks = ExecuteCommandToDataTable(command);
+
+                dgv.DataSource = null;
+                dgv.DataSource = marks;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Errore esecuzione query: {ex.Message}");
+            }
+        }
+
+        private void btnInserMarkWithPK_Click(object sender, EventArgs e)
+        {
+            if (connection is null)
+            {
+                MessageBox.Show("No DB connection");
+                return;
+            }
+
+            var voto = nudMark.Value;
+            var idAlunno = Convert.ToInt32(cmbStudents.SelectedValue);
+            var idMateria = cmbSubjects.SelectedValue.ToString();
+
+            try
+            {
+                var command = new SqlCommand
+                {
+                    Connection = connection,
+                    CommandType = CommandType.Text,
+                    CommandText = @"INSERT INTO VOTI 
+                                    (Voto, idAlunno, idMateria)
+                                    VALUES
+                                    (@voto, @idAlunno, @idMateria);
+                                    SELECT SCOPE_IDENTITY();"
+                };
+
+                command
+                    .Parameters
+                    .AddRange(
+                        new SqlParameter[]
+                        {
+                            new SqlParameter("@voto", SqlDbType.Float) { Value = voto},
+                            new SqlParameter("@idAlunno", SqlDbType.Int) { Value = idAlunno },
+                            new SqlParameter("@idMateria", SqlDbType.VarChar, 50) { Value = idMateria }
+                        });
+
+                command.Prepare();
+
+                var id = command.ExecuteScalar();
+
+                MessageBox.Show($"Id Assegnato: {id}");
 
             }
             catch (Exception ex)

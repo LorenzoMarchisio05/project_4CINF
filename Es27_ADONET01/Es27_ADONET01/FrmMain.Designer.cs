@@ -38,6 +38,8 @@
             this.nudMark = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.btnInsertMark = new System.Windows.Forms.Button();
+            this.btnShowMarks = new System.Windows.Forms.Button();
+            this.btnInserMarkWithPK = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMark)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +80,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 82);
+            this.label1.Location = new System.Drawing.Point(12, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 3;
@@ -88,7 +90,7 @@
             // 
             this.cmbStudents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStudents.FormattingEnabled = true;
-            this.cmbStudents.Location = new System.Drawing.Point(71, 117);
+            this.cmbStudents.Location = new System.Drawing.Point(71, 140);
             this.cmbStudents.Name = "cmbStudents";
             this.cmbStudents.Size = new System.Drawing.Size(245, 21);
             this.cmbStudents.TabIndex = 6;
@@ -96,7 +98,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 120);
+            this.label2.Location = new System.Drawing.Point(12, 143);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 5;
@@ -106,7 +108,7 @@
             // 
             this.cmbSubjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSubjects.FormattingEnabled = true;
-            this.cmbSubjects.Location = new System.Drawing.Point(71, 79);
+            this.cmbSubjects.Location = new System.Drawing.Point(71, 102);
             this.cmbSubjects.Name = "cmbSubjects";
             this.cmbSubjects.Size = new System.Drawing.Size(245, 21);
             this.cmbSubjects.TabIndex = 7;
@@ -119,7 +121,7 @@
             0,
             0,
             65536});
-            this.nudMark.Location = new System.Drawing.Point(62, 160);
+            this.nudMark.Location = new System.Drawing.Point(62, 183);
             this.nudMark.Maximum = new decimal(new int[] {
             10,
             0,
@@ -142,7 +144,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 162);
+            this.label3.Location = new System.Drawing.Point(12, 185);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 13);
             this.label3.TabIndex = 9;
@@ -150,7 +152,7 @@
             // 
             // btnInsertMark
             // 
-            this.btnInsertMark.Location = new System.Drawing.Point(170, 160);
+            this.btnInsertMark.Location = new System.Drawing.Point(170, 183);
             this.btnInsertMark.Name = "btnInsertMark";
             this.btnInsertMark.Size = new System.Drawing.Size(146, 22);
             this.btnInsertMark.TabIndex = 10;
@@ -158,11 +160,33 @@
             this.btnInsertMark.UseVisualStyleBackColor = true;
             this.btnInsertMark.Click += new System.EventHandler(this.btnInsertMark_Click);
             // 
+            // btnShowMarks
+            // 
+            this.btnShowMarks.Location = new System.Drawing.Point(179, 49);
+            this.btnShowMarks.Name = "btnShowMarks";
+            this.btnShowMarks.Size = new System.Drawing.Size(137, 30);
+            this.btnShowMarks.TabIndex = 11;
+            this.btnShowMarks.Text = "Mostra Voti";
+            this.btnShowMarks.UseVisualStyleBackColor = true;
+            this.btnShowMarks.Click += new System.EventHandler(this.btnShowMarks_Click);
+            // 
+            // btnInserMarkWithPK
+            // 
+            this.btnInserMarkWithPK.Location = new System.Drawing.Point(170, 221);
+            this.btnInserMarkWithPK.Name = "btnInserMarkWithPK";
+            this.btnInserMarkWithPK.Size = new System.Drawing.Size(146, 22);
+            this.btnInserMarkWithPK.TabIndex = 12;
+            this.btnInserMarkWithPK.Text = "Inserisci Voto Ritorna PK";
+            this.btnInserMarkWithPK.UseVisualStyleBackColor = true;
+            this.btnInserMarkWithPK.Click += new System.EventHandler(this.btnInserMarkWithPK_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1020, 394);
+            this.Controls.Add(this.btnInserMarkWithPK);
+            this.Controls.Add(this.btnShowMarks);
             this.Controls.Add(this.btnInsertMark);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nudMark);
@@ -197,6 +221,8 @@
         private System.Windows.Forms.NumericUpDown nudMark;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnInsertMark;
+        private System.Windows.Forms.Button btnShowMarks;
+        private System.Windows.Forms.Button btnInserMarkWithPK;
     }
 }
 
