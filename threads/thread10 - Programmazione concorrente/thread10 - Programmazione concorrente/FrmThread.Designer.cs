@@ -57,7 +57,7 @@
             this.dgvLock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLock.Location = new System.Drawing.Point(12, 51);
             this.dgvLock.Name = "dgvLock";
-            this.dgvLock.Size = new System.Drawing.Size(201, 387);
+            this.dgvLock.Size = new System.Drawing.Size(201, 700);
             this.dgvLock.TabIndex = 1;
             // 
             // dgvMutex
@@ -65,7 +65,7 @@
             this.dgvMutex.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMutex.Location = new System.Drawing.Point(220, 51);
             this.dgvMutex.Name = "dgvMutex";
-            this.dgvMutex.Size = new System.Drawing.Size(201, 387);
+            this.dgvMutex.Size = new System.Drawing.Size(201, 700);
             this.dgvMutex.TabIndex = 3;
             // 
             // btnMutex
@@ -74,7 +74,7 @@
             this.btnMutex.Name = "btnMutex";
             this.btnMutex.Size = new System.Drawing.Size(201, 23);
             this.btnMutex.TabIndex = 2;
-            this.btnMutex.Text = "Butex";
+            this.btnMutex.Text = "Mutex";
             this.btnMutex.UseVisualStyleBackColor = true;
             this.btnMutex.Click += new System.EventHandler(this.btnMutex_Click);
             // 
@@ -83,7 +83,7 @@
             this.dgvSemaphore.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSemaphore.Location = new System.Drawing.Point(427, 51);
             this.dgvSemaphore.Name = "dgvSemaphore";
-            this.dgvSemaphore.Size = new System.Drawing.Size(201, 387);
+            this.dgvSemaphore.Size = new System.Drawing.Size(201, 700);
             this.dgvSemaphore.TabIndex = 5;
             // 
             // btnSemaphore
@@ -101,7 +101,7 @@
             this.dgvSemaphoreSlim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSemaphoreSlim.Location = new System.Drawing.Point(634, 51);
             this.dgvSemaphoreSlim.Name = "dgvSemaphoreSlim";
-            this.dgvSemaphoreSlim.Size = new System.Drawing.Size(201, 387);
+            this.dgvSemaphoreSlim.Size = new System.Drawing.Size(201, 700);
             this.dgvSemaphoreSlim.TabIndex = 7;
             // 
             // btnSemaphoreSlim
@@ -118,7 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(847, 450);
+            this.ClientSize = new System.Drawing.Size(852, 763);
             this.Controls.Add(this.dgvSemaphoreSlim);
             this.Controls.Add(this.btnSemaphoreSlim);
             this.Controls.Add(this.dgvSemaphore);
@@ -127,8 +127,10 @@
             this.Controls.Add(this.btnMutex);
             this.Controls.Add(this.dgvLock);
             this.Controls.Add(this.btnLock);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmThread";
             this.Text = "Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmThread_FormClosing);
             this.Load += new System.EventHandler(this.FrmThread_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMutex)).EndInit();
