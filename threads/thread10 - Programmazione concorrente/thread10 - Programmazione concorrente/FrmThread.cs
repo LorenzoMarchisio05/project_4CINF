@@ -14,6 +14,8 @@ namespace thread10___Programmazione_concorrente
 {
     public partial class FrmThread : Form
     {
+        private static CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
         private static object _lock = new object();
 
         private static Mutex _mutex = new Mutex(false);
@@ -49,17 +51,17 @@ namespace thread10___Programmazione_concorrente
             btnLock.Enabled = false;
             initDataGridView(dgvLock);
 
-            var thread1 = new Thread(lock_handler)
+            var thread1 = new Thread(() => lock_handler(_cancellationTokenSource.Token))
             { 
                 Name = "thread 1"
             };
 
-            var thread2 = new Thread(lock_handler)
+            var thread2 = new Thread(() => lock_handler(_cancellationTokenSource.Token))
             {
                 Name = "thread 2"
             };
 
-            var thread3 = new Thread(lock_handler)
+            var thread3 = new Thread(() => lock_handler(_cancellationTokenSource.Token))
             {
                 Name = "thread 3"
             };
@@ -74,17 +76,17 @@ namespace thread10___Programmazione_concorrente
             btnMutex.Enabled = false;
             initDataGridView(dgvMutex);
 
-            var thread1 = new Thread(mutex_handler)
+            var thread1 = new Thread(() => mutex_handler(_cancellationTokenSource.Token))
             {
                 Name = "thread 1"
             };
 
-            var thread2 = new Thread(mutex_handler)
+            var thread2 = new Thread(() => mutex_handler(_cancellationTokenSource.Token))
             {
                 Name = "thread 2"
             };
 
-            var thread3 = new Thread(mutex_handler)
+            var thread3 = new Thread(() => mutex_handler(_cancellationTokenSource.Token))
             {
                 Name = "thread 3"
             };
@@ -99,17 +101,17 @@ namespace thread10___Programmazione_concorrente
             btnSemaphore.Enabled = false;
             initDataGridView(dgvSemaphore);
 
-            var thread1 = new Thread(semaphore_handler)
+            var thread1 = new Thread(() => semaphore_handler(_cancellationTokenSource.Token))
             {
                 Name = "thread 1"
             };
 
-            var thread2 = new Thread(semaphore_handler)
+            var thread2 = new Thread(() => semaphore_handler(_cancellationTokenSource.Token))
             {
                 Name = "thread 2"
             };
 
-            var thread3 = new Thread(semaphore_handler)
+            var thread3 = new Thread(() => semaphore_handler(_cancellationTokenSource.Token))
             {
                 Name = "thread 3"
             };
@@ -124,17 +126,17 @@ namespace thread10___Programmazione_concorrente
             btnSemaphoreSlim.Enabled = false;
             initDataGridView(dgvSemaphoreSlim);
 
-            var thread1 = new Thread(semaphoreSlim_handler)
+            var thread1 = new Thread(() => semaphoreSlim_handler(_cancellationTokenSource.Token))
             {
                 Name = "thread 1"
             };
 
-            var thread2 = new Thread(semaphoreSlim_handler)
+            var thread2 = new Thread(() => semaphoreSlim_handler(_cancellationTokenSource.Token))
             {
                 Name = "thread 2"
             };
 
-            var thread3 = new Thread(semaphoreSlim_handler)
+            var thread3 = new Thread(() => semaphoreSlim_handler(_cancellationTokenSource.Token))
             {
                 Name = "thread 3"
             };
@@ -145,7 +147,7 @@ namespace thread10___Programmazione_concorrente
         }
 
         #region Handlers
-        private void lock_handler()
+        private void lock_handler(CancellationToken cancellationToken)
         {
             var s = "";
 
@@ -160,6 +162,11 @@ namespace thread10___Programmazione_concorrente
             {
                 for (int i = 0; i < 10; i++)
                 {
+                    if(cancellationToken.IsCancellationRequested)
+                    {
+                        return;
+                    }
+
                     Thread.Sleep(1000);
 
                     s = $"{Thread.CurrentThread.Name}-> Sezione critica: {i}";
@@ -181,7 +188,7 @@ namespace thread10___Programmazione_concorrente
             */
         }
 
-        private void mutex_handler()
+        private void mutex_handler(CancellationToken cancellationToken)
         {
             var s = "";
 
@@ -195,6 +202,12 @@ namespace thread10___Programmazione_concorrente
 
             for (int i = 0; i < 10; i++)
             {
+                if(cancellationToken.IsCancellationRequested)
+                {
+                    _mutex.ReleaseMutex();
+                    return;
+                }
+
                 Thread.Sleep(1000);
 
                 s = $"{Thread.CurrentThread.Name}-> Sezione critica: {i}";
@@ -218,7 +231,7 @@ namespace thread10___Programmazione_concorrente
             
         }
 
-        private void semaphore_handler()
+        private void semaphore_handler(CancellationToken cancellationToken)
         {
             var s = "";
 
@@ -232,6 +245,11 @@ namespace thread10___Programmazione_concorrente
 
             for (int i = 0; i < 10; i++)
             {
+                if(cancellationToken.IsCancellationRequested)
+                {
+                    _semaphore.Release();
+                    return;
+                }
                 Thread.Sleep(1000);
 
                 s = $"{Thread.CurrentThread.Name}-> Sezione critica: {i}";
@@ -254,7 +272,7 @@ namespace thread10___Programmazione_concorrente
             */
         }
 
-        private void semaphoreSlim_handler()
+        private void semaphoreSlim_handler(CancellationToken cancellationToken)
         {
             var s = "";
 
@@ -268,6 +286,14 @@ namespace thread10___Programmazione_concorrente
 
             for (int i = 0; i < 10; i++)
             {
+                
+                if(cancellationToken.IsCancellationRequested)
+                {
+                    _semaphoreSlim.Release();
+                    return;
+                }
+                
+
                 Thread.Sleep(1000);
 
                 s = $"{Thread.CurrentThread.Name}-> Sezione critica: {i}";
@@ -294,6 +320,9 @@ namespace thread10___Programmazione_concorrente
 
         private void FrmThread_FormClosing(object sender, FormClosingEventArgs e)
         {
+            _cancellationTokenSource.Cancel();
+
+            Thread.Sleep(1000);
         }
     }
 }
