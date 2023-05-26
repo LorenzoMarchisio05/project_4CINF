@@ -34,7 +34,7 @@ namespace Master_Detail_MVC
             //
             try
             {
-                //cAlunni = new clsAlunniController(@"App_Data\DB_4C_2023.mdf");
+                cAlunni = new clsAlunniController(@"App_Data\DB_4C_2023.mdf");
                 caricaDgv();
             }
             catch (Exception ex)
@@ -45,7 +45,7 @@ namespace Master_Detail_MVC
         }
         private void caricaDgv()
         {
-            //dgvAlunni.DataSource = cAlunni.caricaAlunni();
+            dgvAlunni.DataSource = cAlunni.caricaAlunni();
         }
 
         
