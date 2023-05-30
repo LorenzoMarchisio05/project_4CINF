@@ -31,6 +31,7 @@ namespace Master_Detail_MVC
             dtpDataNascita.MinDate = Convert.ToDateTime("01/01/" + anno.ToString());
             anno = DateTime.Now.Year - 15;
             dtpDataNascita.MaxDate = Convert.ToDateTime("31/12/" + anno.ToString());
+            txtIdAlunno.ReadOnly = false;
             //
             try
             {
@@ -45,7 +46,16 @@ namespace Master_Detail_MVC
         }
         private void caricaDgv()
         {
-            dgvAlunni.DataSource = cAlunni.caricaAlunni();
+            try
+            {
+                dgvAlunni.DataSource = null;
+                dgvAlunni.DataSource = cAlunni.caricaAlunni();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         
@@ -57,17 +67,65 @@ namespace Master_Detail_MVC
 
         private void caricaAlunno(string idAlunno)
         {
-            
+            try
+            {
+                var alunno = cAlunni.cercaAlunno(idAlunno);
+
+                txtIdAlunno.Text = alunno.IdAlunno.ToString();
+                txtNome.Text = alunno.Nome;
+                txtCognome.Text = alunno.Cognome;
+                txtCitta.Text = alunno.Citta;
+                dtpDataNascita.Value = alunno.DataNascita;
+                nudAltezza.Value = alunno.Altezza;
+                chkInglese.Checked = alunno.Inglese;
+                txtTelefono.Text = alunno.Telefono;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnSalva_Click(object sender, EventArgs e)
         {
-            
+            var alunno = new clsAlunni
+            {
+                Nome = txtNome.Text.Trim(),
+                Cognome = txtCognome.Text.Trim(),
+                Citta = txtCitta.Text.Trim(),
+                DataNascita = dtpDataNascita.Value,
+                Altezza = (int)nudAltezza.Value,
+                Inglese = chkInglese.Checked,
+                Telefono = txtTelefono.Text
+            };
+
+            if(txtIdAlunno.Text.Trim() == "")
+            {
+                var id = cAlunni.inserisciAlunno(alunno);
+
+                dgvAlunni.Rows.Add(alunno);
+
+                MessageBox.Show($"Addedd alunno {id}");
+            }
+            else
+            {
+                var id = cAlunni.modificaAlunno(alunno);
+
+                caricaDgv();
+
+                MessageBox.Show($"Edited alunno {id}");
+            }
+
         }
 
         private void btnCancella_Click(object sender, EventArgs e)
         {
-            
+            var id = cAlunni.eliminaAlunno(txtIdAlunno.Text);
+
+            MessageBox.Show($"deleted alunno {id}");
+
+            caricaDgv();
         }
 
         private void btnNuovoAlunno_Click(object sender, EventArgs e)
