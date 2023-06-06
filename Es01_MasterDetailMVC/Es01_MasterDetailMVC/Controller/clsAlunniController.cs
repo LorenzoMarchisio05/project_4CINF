@@ -67,14 +67,13 @@ namespace Es01_MasterDetailMVC.Controller
             };
         }
 
-        internal int eliminaAlunno(string id)
+        internal bool eliminaAlunno(string id)
         {
             var command = new SqlCommand
             {
                 CommandType = CommandType.Text,
                 CommandText = @"DELETE FROM ALUNNI 
-                                WHERE idAlunno = @idAlunno;
-                                SELECT SCOPE_IDENTITY();"
+                                WHERE idAlunno = @idAlunno;"
             };
 
             if (!int.TryParse(id, out var idAlunno))
@@ -84,9 +83,9 @@ namespace Es01_MasterDetailMVC.Controller
 
             command
                 .Parameters
-                .Add(new SqlParameter("@idAlunno", SqlDbType.Int) { Value = id });
+                .Add(new SqlParameter("@idAlunno", SqlDbType.Int) { Value = idAlunno });
 
-            return (int)_adonet.EseguiScalar(command);
+            return _adonet.EseguiNonQuery(command) != 0;
         }
 
         internal int inserisciAlunno(clsAlunni alunno)
@@ -117,21 +116,20 @@ namespace Es01_MasterDetailMVC.Controller
             return (int)_adonet.EseguiScalar(command);
         }
 
-        internal int modificaAlunno(clsAlunni alunno)
+        internal bool modificaAlunno(clsAlunni alunno)
         {
             var command = new SqlCommand
             {
                 CommandType = CommandType.Text,
                 CommandText = @"UPDATE ALUNNI SET 
-                                    nome = @nome, 
-                                    cognome = @cognome, 
+                                    nome = @nome,
+                                    cognome = @cognome,
                                     citta = @citta,
                                     dataNascita = @dataNascita, 
                                     altezza = @altezza, 
                                     inglese = @inglese, 
                                     telefono = @telefono
-                                WHERE idAlunno = @id;
-                                SELECT SCOPE_IDENTITY();"
+                                WHERE idAlunno = @id;"
             };
 
             command
@@ -148,7 +146,7 @@ namespace Es01_MasterDetailMVC.Controller
                     new SqlParameter("@telefono", SqlDbType.VarChar) { Value = alunno.Telefono }
                 });
 
-            return (int)_adonet.EseguiScalar(command);
+            return  _adonet.EseguiNonQuery(command) != 0;
         }
     }
 }

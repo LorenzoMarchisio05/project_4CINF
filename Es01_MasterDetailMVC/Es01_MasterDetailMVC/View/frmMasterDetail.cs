@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -91,6 +92,7 @@ namespace Master_Detail_MVC
         {
             var alunno = new clsAlunni
             {
+                IdAlunno = int.Parse(txtIdAlunno.Text.Trim()),
                 Nome = txtNome.Text.Trim(),
                 Cognome = txtCognome.Text.Trim(),
                 Citta = txtCitta.Text.Trim(),
@@ -110,22 +112,28 @@ namespace Master_Detail_MVC
             }
             else
             {
-                var id = cAlunni.modificaAlunno(alunno);
+                var esito = cAlunni.modificaAlunno(alunno);
 
-                caricaDgv();
+                if(esito)
+                {
+                    caricaDgv();
 
-                MessageBox.Show($"Edited alunno {id}");
+                    MessageBox.Show($"Edited alunno {alunno.IdAlunno}");
+                }
             }
 
         }
 
         private void btnCancella_Click(object sender, EventArgs e)
         {
-            var id = cAlunni.eliminaAlunno(txtIdAlunno.Text);
+            var esito = cAlunni.eliminaAlunno(txtIdAlunno.Text);
 
-            MessageBox.Show($"deleted alunno {id}");
+            if (esito)
+            {
+                caricaDgv();
 
-            caricaDgv();
+                MessageBox.Show($"deleted alunno {txtIdAlunno.Text.Trim()}");
+            }
         }
 
         private void btnNuovoAlunno_Click(object sender, EventArgs e)
